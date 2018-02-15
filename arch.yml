@@ -1,0 +1,7 @@
+- hosts: arch
+  become: true
+  tasks:
+    - name: Install vim
+      pacman:
+        name: vim
+        state: present
