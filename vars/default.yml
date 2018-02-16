@@ -54,8 +54,20 @@ core_packages:
   - discount
   - highlight
   - fzf
+  - i3-gaps 
 
 aur_packages:
 # Serquence matters here!
   - cower
   - pacaur
+  - vim-pathogen 
+  - unclutter-xfixes-git 
+  - polybar 
+  - htop-vim-git 
+  - ncpamixer-git 
+  - urlview 
+  - sc-im
+
+post_core_packages:
+# Due to some AUR dependencies
+  - i3lock

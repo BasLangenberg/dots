@@ -33,3 +33,8 @@
         user: aur_user
         skip_pgp: yes
       with_items: "{{ aur_packages }}"
+    - name: Install extra packages
+      pacman:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ post_core_packages }}"
