@@ -1,7 +1,37 @@
 - hosts: arch
   become: true
+  vars_files:
+    - vars/default.yml
   tasks:
-    - name: Install vim
-      pacman:
-        name: vim
+    - name: create personal user
+      user:
+        name: "{{ user }}"
+        password: "{{ password }}"
+    - name: create aur management user
+      user:
+        name: aur_user
+        group: wheel
+        home: /var/lib/aurman
+        system: yes
+        shell: /bin/nologin
+    - name: setup sudo for aur_user
+      lineinfile:
+        path: /etc/sudoers
         state: present
+        line: 'aur_user ALL=(ALL) NOPASSWD: ALL'
+    - name: setup sudo for wheel group
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        line: '%wheel ALL=(ALL) ALL'
+    - name: Install core packages
+      pacman:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ core_packages }}"
+    - name: install aur packages
+      aur:
+        name: "{{ item }}"
+        user: aur_user
+        skip_pgp: yes
+      with_items: "{{ aur_packages }}"

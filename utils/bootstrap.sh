@@ -48,9 +48,9 @@ EOF
 
 partprobe
 
-mkfs.ext4 /dev/sda4
-mkfs.ext4 /dev/sda3
-mkfs.ext4 /dev/sda1
+mkfs.ext4 -F /dev/sda4
+mkfs.ext4 -F /dev/sda3
+mkfs.ext4 -F /dev/sda1
 mkswap /dev/sda2
 swapon /dev/sda2
 mount /dev/sda3 /mnt
@@ -67,7 +67,7 @@ curl http://utils.homecooked.nl/chroot.sh > /mnt/chroot.sh && arch-chroot /mnt b
 
 cat comp > /mnt/etc/hostname && rm comp
 
-dialog --defaultno --title "Provision userspace" --yesno "Base system should be provisioned now\n\nDo you want to provision Bas' desktop config?"  8 30 && curl http://utils.homecooked.nl/ansible.sh > /mnt/ansible.sh && arch-chroot /mnt bash ansibile.sh && rm /mnt/ansible.sh
+dialog --defaultno --title "Provision userspace" --yesno "Base system should be provisioned now\n\nDo you want to provision Bas' desktop config?"  8 30 && curl http://utils.homecooked.nl/ansible.sh > /mnt/ansible.sh && arch-chroot /mnt bash ansible.sh && rm /mnt/ansible.sh
 
 dialog --defaultno --title "Final Qs" --yesno "Eject CD/ROM (if any)?"  5 30 && eject
 dialog --defaultno --title "Final Qs" --yesno "Reboot computer?"  5 30 && reboot

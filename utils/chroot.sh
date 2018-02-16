@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-passwd
+# secure AF
+echo 'k' | passwd --stdin
 
 ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 

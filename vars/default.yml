@@ -1,0 +1,61 @@
+---
+user: bas
+
+# The password is changeme secure AF
+password: $6$oJZXJd8X$GH9aU51wye4FH2CIb9cw78opVzO7q1yPsBiEP40w9rv1EZujHbNNMepemSTgeG2V7e80amTtcBujM/Qi35r75.
+
+core_packages:
+  - vim
+  - tmux
+  - base-devel 
+  - git 
+  - xorg-xinit 
+  - xorg-server 
+  - xorg-xdpyinfo 
+  - compton 
+  - arandr 
+  - ttf-inconsolata 
+  - ttf-linux-libertine 
+  - noto-fonts 
+  - unzip 
+  - unrar 
+  - wget 
+  - atool 
+  - ntfs-3g 
+  - gnome-keyring 
+  - dosfstools
+  - calcurse 
+  - ranger 
+  - rofi 
+  - poppler 
+  - mupdf 
+  - pandoc
+  - wireless_tools 
+  - network-manager-applet 
+  - networkmanager 
+  - qutebrowser 
+  - rsync 
+  - feh
+  - imagemagick
+  - scrot
+  - ffmpeg 
+  - pulseaudio 
+  - pulseaudio-alsa 
+  - pamixer 
+  - mpd 
+  - mpc 
+  - ncmpcpp 
+  - youtube-dl 
+  - youtube-viewer 
+  - mediainfo 
+  - mpv
+  - python-dbus
+  - python-gobject
+  - discount
+  - highlight
+  - fzf
+
+aur_packages:
+# Serquence matters here!
+  - cower
+  - pacaur
