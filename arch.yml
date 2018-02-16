@@ -14,16 +14,11 @@
         home: /var/lib/aurman
         system: yes
         shell: /bin/nologin
-    - name: setup sudo for aur_user
+    - name: setup sudo
       lineinfile:
         path: /etc/sudoers
         state: present
-        line: 'aur_user ALL=(ALL) NOPASSWD: ALL'
-    - name: setup sudo for wheel group
-      lineinfile:
-        path: /etc/sudoers
-        state: present
-        line: '%wheel ALL=(ALL) ALL'
+        line: '# This sequence is important for Ansible!\n%wheel ALL=(ALL) ALL\naur_user ALL=(ALL) NOPASSWD: ALL'
     - name: Install core packages
       pacman:
         name: "{{ item }}"
