@@ -42,9 +42,13 @@
         name: "{{ item }}"
         state: present
       with_items: "{{ post_core_packages }}"
+    - name: setup xinitrc
+      file:
+        path: "/home/{{ user }}/.xinitrc"
+        owner: bas
+        group: bas
+        state: touch
     - name: setup i3
       lineinfile:
         path: "/home/{{ user }}/.xinitrc"
         line: "exec i3"
-        group: "{{ user }}"
-        owner: "{{ user }}"
