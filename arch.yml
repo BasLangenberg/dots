@@ -7,6 +7,8 @@
       user:
         name: "{{ user }}"
         password: "{{ password }}"
+        group: bas
+        groups: wheel
       tags: ['install']
     - name: create aur management user
       user:
@@ -38,3 +40,9 @@
         name: "{{ item }}"
         state: present
       with_items: "{{ post_core_packages }}"
+    - name: setup i3
+      lineinfile:
+        path: "/home/{{ user }}/.xinitrc"
+        line: "exec i3"
+        group: "{{ user }}"
+        owner: "{{ user }}"

@@ -55,6 +55,7 @@ core_packages:
   - highlight
   - fzf
   - i3-gaps 
+  - rxvt-unicode
 
 aur_packages:
 # Serquence matters here!
