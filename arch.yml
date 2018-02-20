@@ -3,6 +3,8 @@
   vars_files:
     - vars/default.yml
   tasks:
+    - name: create personal group
+      group: name=bas
     - name: create personal user
       user:
         name: "{{ user }}"
