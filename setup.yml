@@ -13,6 +13,8 @@
     - name: create personal group
       group:
         name: "{{ user }}"
+      tags: ['install']
+      when: create == 'true'
     - name: create personal user
       user:
         name: "{{ user }}"
