@@ -41,6 +41,7 @@
     path: /root/code
     owner: root
     group: root
+    state: directory
 - name: mount shared disk with code for debug
   mount:
     path: /root/code
