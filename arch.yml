@@ -36,6 +36,22 @@
     - virtualbox-guest-utils
     - linux-headers
   when: ansible_virtualization_type == "virtualbox"
+- name: add virtualbox guest dependencies
+  pacman:
+    name: "{{ item}}"
+    state: present
+  with_items:
+    - virtualbox-guest-utils
+    - linux-headers
+  when: ansible_virtualization_type == "virtualbox"
+- name: mount shared disk with code for debug
+  file:
+    path: /root/code
+    fstype: vboxsf
+    state: mounted
+    # You obviously need to create a share for this to work
+    src: arch-install
+  when: ansible_virtualization_type == "virtualbox"
 - name: setup xinitrc
   file:
     path: "/home/{{ user }}/.xinitrc"
