@@ -63,7 +63,8 @@ aur_packages:
   - pacaur
   - vim-pathogen 
   - unclutter-xfixes-git 
-  - polybar 
+  # We'll enable this one later again, takes a long time to compile...
+  # - polybar 
   - htop-vim-git 
   - ncpamixer-git 
   - urlview 
