@@ -1,0 +1,26 @@
+- hosts: all
+  become: true
+  vars_files:
+    - vars/default.yml
+  vars_prompt:
+    - name: "user"
+      prompt: "Username to create"
+      default: "bas"
+    - name: "create"
+      prompt: "Do we need to create it? (true / false)"
+      default: "true"
+  tasks:
+    - name: create personal group
+      group:
+        name: "{{ user }}"
+    - name: create personal user
+      user:
+        name: "{{ user }}"
+        password: "{{ password }}"
+        group: bas
+        groups: wheel
+      tags: ['install']
+      when: create == 'true'
+    - name: import arch linux setup
+      import_tasks: arch.yml
+      when: ansible_distribution == "Archlinux"

@@ -1,54 +1,48 @@
-- hosts: arch
-  become: true
-  vars_files:
-    - vars/default.yml
-  tasks:
-    - name: create personal group
-      group: name=bas
-    - name: create personal user
-      user:
-        name: "{{ user }}"
-        password: "{{ password }}"
-        group: bas
-        groups: wheel
-      tags: ['install']
-    - name: create aur management user
-      user:
-        name: aur_user
-        group: wheel
-        home: /var/lib/aurman
-        system: yes
-        shell: /bin/nologin
-      tags: ['install']
-    - name: setup sudo
-      lineinfile:
-        path: /etc/sudoers
-        state: present
-        line: "# This sequence is important for Ansible!\n%wheel ALL=(ALL) ALL\naur_user ALL=(ALL) NOPASSWD: ALL"
-      tags: ['install']
-    - name: Install core packages
-      pacman:
-        name: "{{ item }}"
-        state: present
-      with_items: "{{ core_packages }}"
-    - name: install aur packages
-      aur:
-        name: "{{ item }}"
-        user: aur_user
-        skip_pgp: yes
-      with_items: "{{ aur_packages }}"
-    - name: Install extra packages
-      pacman:
-        name: "{{ item }}"
-        state: present
-      with_items: "{{ post_core_packages }}"
-    - name: setup xinitrc
-      file:
-        path: "/home/{{ user }}/.xinitrc"
-        owner: bas
-        group: bas
-        state: touch
-    - name: setup i3
-      lineinfile:
-        path: "/home/{{ user }}/.xinitrc"
-        line: "exec i3"
+- name: create aur management user
+  user:
+    name: aur_user
+    group: wheel
+    home: /var/lib/aurman
+    system: yes
+    shell: /bin/nologin
+  tags: ['install']
+- name: setup sudo
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: "# This sequence is important for Ansible!\n%wheel ALL=(ALL) ALL\naur_user ALL=(ALL) NOPASSWD: ALL"
+  tags: ['install']
+- name: Install core packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ core_packages }}"
+- name: install aur packages
+  aur:
+    name: "{{ item }}"
+    user: aur_user
+    skip_pgp: yes
+  with_items: "{{ aur_packages }}"
+- name: Install extra packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ post_core_packages }}"
+- name: Install Virtualbox packages
+  pacman:
+    name: "{{ item}}"
+    state: present
+  with_items:
+    - virtualbox-guest-utils
+    - linux-headers
+  when: ansible_virtualization_type == "virtualbox"
+- name: setup xinitrc
+  file:
+    path: "/home/{{ user }}/.xinitrc"
+    owner: bas
+    group: bas
+    state: touch
+- name: setup i3
+  lineinfile:
+    path: "/home/{{ user }}/.xinitrc"
+    line: "exec i3"
