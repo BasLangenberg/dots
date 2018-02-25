@@ -36,16 +36,13 @@
     - virtualbox-guest-utils
     - linux-headers
   when: ansible_virtualization_type == "virtualbox"
-- name: add virtualbox guest dependencies
-  pacman:
-    name: "{{ item}}"
-    state: present
-  with_items:
-    - virtualbox-guest-utils
-    - linux-headers
-  when: ansible_virtualization_type == "virtualbox"
-- name: mount shared disk with code for debug
+- name: create directory to mount arch-install code
   file:
+    path: /root/code
+    owner: root
+    group: root
+- name: mount shared disk with code for debug
+  mount:
     path: /root/code
     fstype: vboxsf
     state: mounted
