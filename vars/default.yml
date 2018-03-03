@@ -60,7 +60,7 @@ core_packages:
 aur_packages:
 # Serquence matters here!
   - cower
-  - pacaur
+  - trizen
   - vim-pathogen 
   - unclutter-xfixes-git 
   # We'll enable this one later again, takes a long time to compile...
