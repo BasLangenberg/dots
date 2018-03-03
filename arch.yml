@@ -49,6 +49,7 @@
     state: mounted
     # You obviously need to create a share for this to work
     src: arch-install
+  ignore_errors: yes
   when: ansible_virtualization_type == "virtualbox"
 - name: setup xinitrc
   file:
