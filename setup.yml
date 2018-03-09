@@ -21,6 +21,7 @@
         password: "{{ password }}"
         group: bas
         groups: wheel
+        shell: /bin/zsh
       tags: ['install']
       when: create == 'true'
     - name: import arch linux setup

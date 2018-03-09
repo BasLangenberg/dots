@@ -56,6 +56,7 @@ core_packages:
   - fzf
   - i3-gaps 
   - rxvt-unicode
+  - zsh
 
 aur_packages:
 # Serquence matters here!
@@ -63,12 +64,13 @@ aur_packages:
   - trizen
   - vim-pathogen 
   - unclutter-xfixes-git 
-  # We'll enable this one later again, takes a long time to compile...
-  # - polybar 
   - htop-vim-git 
   - ncpamixer-git 
   - urlview 
   - sc-im
+  # We'll enable this one later again, takes a long time to compile...
+  # - polybar 
+  # - google-chrome
 
 post_core_packages:
 # Due to some AUR dependencies
