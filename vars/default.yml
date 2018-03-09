@@ -34,6 +34,7 @@ core_packages:
   - network-manager-applet 
   - networkmanager 
   - qutebrowser 
+  - openssh
   - rsync 
   - feh
   - imagemagick
