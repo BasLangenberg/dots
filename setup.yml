@@ -3,7 +3,6 @@
   vars_files:
     - vars/default.yml
   tasks:
-    - fail: 
     - name: create personal group
       group:
         name: "{{ user }}"
