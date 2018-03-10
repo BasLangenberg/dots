@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PLAYBOOK_DIR=/tmp/playbook
+SETUP_USERNAME=bas
 
 git clone https://github.com/BasLangenberg/arch-install.git $PLAYBOOK_DIR
 cd $PLAYBOOK_DIR

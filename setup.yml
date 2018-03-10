@@ -2,28 +2,21 @@
   become: true
   vars_files:
     - vars/default.yml
-  vars_prompt:
-    - name: "user"
-      prompt: "Username to create"
-      default: "bas"
-    - name: "create"
-      prompt: "Do we need to create it? (true / false)"
-      default: "true"
   tasks:
     - name: create personal group
       group:
-        name: "{{ user }}"
+        name: "{{ ansible_env.SETUP_USERNAME }}"
       tags: ['install']
-      when: create == 'true'
+      when: ansible_env.SETUP_USERNAME is defined
     - name: create personal user
       user:
-        name: "{{ user }}"
+        name: "{{ ansible_env.SETUP_USERNAME }}"
         password: "{{ password }}"
         group: bas
         groups: wheel
         shell: /bin/zsh
       tags: ['install']
-      when: create == 'true'
+      when: ansible_env.SETUP_USERNAME is defined
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
