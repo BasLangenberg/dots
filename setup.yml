@@ -27,3 +27,16 @@
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
+    - name: clone dotfiles
+      git:
+        repo: https://github.com/BasLangenberg/dots.git
+        path: "/home/{{ user }}/dots"
+    - name: link dotfiles
+      file:
+        src: "/home/{{ user }}/dots/files/{{ file}}"
+        path: "/home/{{ user }}/{{ file }}"
+        ensure: link
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      with_items:
+        - .zshrc
