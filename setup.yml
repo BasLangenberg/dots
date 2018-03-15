@@ -24,6 +24,12 @@
       git:
         repo: https://github.com/BasLangenberg/dots.git
         dest: "/home/{{ user }}/dots"
+    - name: update permissions
+      file:
+        path: "/home/{{ user }}/dots"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        recurse: true
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"

@@ -61,3 +61,18 @@
   lineinfile:
     path: "/home/{{ user }}/.xinitrc"
     line: "exec i3"
+- name: setup autologin dir
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d
+    owner: root
+    group: root
+    state: directory
+    mode: 755
+- name: setup autologin
+  template:
+    src: autologin.conf.j2
+    dest: /etc/systemd/system/getty@tty1.service.d/override.conf
+    owner: root
+    group: root
+    mode: 0744
+

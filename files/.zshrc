@@ -18,3 +18,8 @@ EDITOR=vim
 
 # aliasses
 alias ll='ls -latr'
+
+# autologin tty1
+if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then;
+        startx
+fi
