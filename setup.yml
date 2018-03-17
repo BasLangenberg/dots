@@ -17,6 +17,10 @@
         shell: /bin/zsh
       tags: ['install']
       when: ansible_env.SETUP_USERNAME is defined
+    - name: check if dotfiles are in place
+      stat:
+        path: "/home/{{ user }}/dots"
+      register: dots
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
@@ -24,12 +28,14 @@
       git:
         repo: https://github.com/BasLangenberg/dots.git
         dest: "/home/{{ user }}/dots"
+      when: dots.stat.isdir is not defined
     - name: update permissions
       file:
         path: "/home/{{ user }}/dots"
         owner: "{{ user }}"
         group: "{{ user }}"
         recurse: true
+      when: dots.stat.isdir is not defined
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"

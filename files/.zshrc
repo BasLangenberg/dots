@@ -94,4 +94,9 @@ bindkey '^Z' fg-bg
 
 # Prompt
 HOSTNAME=$(hostname -s)
-PROMPT="${USER}@${HOSTNAME}: ${PWD} $ "
+
+function precmd {
+    # Inspiration for later maybe
+    #PROMPT="%{$fg[green]%}%c $(git_super_status)%{$fg[red]%}~%{$fg[white]%}? %{$reset_color%}"
+    PROMPT="${USER}@${HOSTNAME}: $(pwd) $ "
+}

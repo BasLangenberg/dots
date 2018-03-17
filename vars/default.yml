@@ -69,9 +69,8 @@ aur_packages:
   - ncpamixer-git 
   - urlview 
   - sc-im
-  # We'll enable this one later again, takes a long time to compile...
-  # - polybar 
-  # - google-chrome
+  - polybar 
+  - google-chrome
 
 post_core_packages:
 # Due to some AUR dependencies

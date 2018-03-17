@@ -6,11 +6,19 @@
     system: yes
     shell: /bin/nologin
   tags: ['install']
-- name: setup sudo
+- name: setup sudo for aur user
   lineinfile:
     path: /etc/sudoers
     state: present
-    line: "# This sequence is important for Ansible!\n%wheel ALL=(ALL) ALL\naur_user ALL=(ALL) NOPASSWD: ALL"
+    line: "aur_user ALL=(ALL) NOPASSWD: ALL"
+    regexp: "^aur_user ALL="
+  tags: ['install']
+- name: setup sudo for wheel group
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: "%wheel ALL=(ALL) ALL"
+    regexp: "^%wheel ALL="
   tags: ['install']
 - name: Install core packages
   pacman:
