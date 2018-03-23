@@ -25,17 +25,20 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ core_packages }}"
+  tags: ['slow']
 - name: install aur packages
   aur:
     name: "{{ item }}"
     user: aur_user
     skip_pgp: yes
   with_items: "{{ aur_packages }}"
+  tags: ['slow']
 - name: Install extra packages
   pacman:
     name: "{{ item }}"
     state: present
   with_items: "{{ post_core_packages }}"
+  tags: ['slow']
 - name: Install Virtualbox packages
   pacman:
     name: "{{ item}}"
@@ -44,6 +47,7 @@
     - virtualbox-guest-utils
     - linux-headers
   when: ansible_virtualization_type == "virtualbox"
+  tags: ['slow']
 - name: create directory to mount arch-install code
   file:
     path: /root/code
@@ -83,4 +87,26 @@
     owner: root
     group: root
     mode: 0744
-
+- name: pull wallpaper
+  get_url:
+    url: http://utils.homecooked.nl/wallpaper.jpg
+    dest: "/home/{{ user }}/wallpaper.jpg"
+    mode: 0440
+    owner: "{{ user }}"
+    group: "{{ user }}"
+- name: make sure i3 config dir exists
+  file:
+    path: "/home/{{ user }}/.config/i3"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: directory
+    mode: 0755
+- name: Install i3 config
+  file:
+    src: "/home/{{ user }}/dots/files/{{ item }}"
+    path: "/home/{{ user }}/.config/i3/{{ item }}"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - config

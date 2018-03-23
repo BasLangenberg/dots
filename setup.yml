@@ -36,6 +36,20 @@
         group: "{{ user }}"
         recurse: true
       when: dots.stat.isdir is not defined
+    - name: setup ranger folder
+      file:
+        path: "/home/{{ user }}/.config/ranger"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        state: directory
+        mode: 0755
+    - name: link ranger config
+      file:
+        src: "/home/{{ user }}/dots/files/ranger_rc.conf"
+        path: "/home/{{ user }}/.config/ranger/rc.conf"
+        state: link
+        owner: "{{ user }}"
+        group: "{{ user }}"
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"
@@ -45,3 +59,5 @@
         group: "{{ user }}"
       with_items:
         - .zshrc
+        - .tmux.conf
+        - .vimrc

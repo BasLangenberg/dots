@@ -25,6 +25,7 @@ EDITOR=vim
 alias ll='ls -latr'
 alias v='vim'
 alias r='ranger' 
+alias gss='git status --short'
 
 # Make completion:
 # - Case-insensitive.
