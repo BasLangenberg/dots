@@ -24,6 +24,7 @@
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
+      tags: ['install']
     - name: clone dotfiles
       git:
         repo: https://github.com/BasLangenberg/dots.git
