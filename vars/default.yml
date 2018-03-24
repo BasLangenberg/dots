@@ -72,6 +72,7 @@ aur_packages:
   - sc-im
   - polybar 
   - google-chrome
+  - python-pywal
 
 post_core_packages:
 # Due to some AUR dependencies

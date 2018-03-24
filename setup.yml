@@ -51,6 +51,16 @@
         state: link
         owner: "{{ user }}"
         group: "{{ user }}"
+    - name: link .config directories
+      file:
+        src: "/home/{{ user }}/dots/files/{{ item }}"
+        path: "/home/{{ user }}/.config/{{ item }}"
+        state: link
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      with_items:
+        - wal
+        - polybar
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"
@@ -61,4 +71,4 @@
       with_items:
         - .zshrc
         - .tmux.conf
-        - .vimrc
+        - .vim
