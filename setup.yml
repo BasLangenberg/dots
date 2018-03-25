@@ -21,9 +21,30 @@
       stat:
         path: "/home/{{ user }}/dots"
       register: dots
+    - name: create aur management user
+      user:
+        name: aur_user
+        group: wheel
+        home: /var/lib/aurman
+        system: yes
+        shell: /bin/nologin
+      tags: ['install']
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
+    - name: setup sudo for aur user
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        line: "aur_user ALL=(ALL) NOPASSWD: ALL"
+        regexp: "^aur_user ALL="
+      tags: ['install']
+    - name: setup sudo for wheel group
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        line: "%wheel ALL=(ALL) ALL"
+        regexp: "^%wheel ALL="
       tags: ['install']
     - name: clone dotfiles
       git:

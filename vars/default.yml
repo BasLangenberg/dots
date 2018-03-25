@@ -59,6 +59,7 @@ core_packages:
   - rxvt-unicode
   - zsh
   - tree
+  - ntp
 
 aur_packages:
 # Serquence matters here!

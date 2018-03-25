@@ -1,25 +1,3 @@
-- name: create aur management user
-  user:
-    name: aur_user
-    group: wheel
-    home: /var/lib/aurman
-    system: yes
-    shell: /bin/nologin
-  tags: ['install']
-- name: setup sudo for aur user
-  lineinfile:
-    path: /etc/sudoers
-    state: present
-    line: "aur_user ALL=(ALL) NOPASSWD: ALL"
-    regexp: "^aur_user ALL="
-  tags: ['install']
-- name: setup sudo for wheel group
-  lineinfile:
-    path: /etc/sudoers
-    state: present
-    line: "%wheel ALL=(ALL) ALL"
-    regexp: "^%wheel ALL="
-  tags: ['install']
 - name: Install core packages
   pacman:
     name: "{{ item }}"
@@ -66,13 +44,10 @@
 - name: setup xinitrc
   file:
     path: "/home/{{ user }}/.xinitrc"
-    owner: bas
-    group: bas
-    state: touch
-- name: setup i3
-  lineinfile:
-    path: "/home/{{ user }}/.xinitrc"
-    line: "exec i3"
+    src: "/home/{{ user }}/dots/files/.xinitrc"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
 - name: setup autologin dir
   file:
     path: /etc/systemd/system/getty@tty1.service.d
