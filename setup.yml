@@ -32,19 +32,19 @@
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"
-    - name: setup sudo for aur user
-      lineinfile:
-        path: /etc/sudoers
-        state: present
-        line: "aur_user ALL=(ALL) NOPASSWD: ALL"
-        regexp: "^aur_user ALL="
-      tags: ['install']
     - name: setup sudo for wheel group
       lineinfile:
         path: /etc/sudoers
         state: present
         line: "%wheel ALL=(ALL) ALL"
         regexp: "^%wheel ALL="
+      tags: ['install']
+    - name: setup sudo for aur user
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        line: "aur_user ALL=(ALL) NOPASSWD: ALL"
+        regexp: "^aur_user ALL="
       tags: ['install']
     - name: clone dotfiles
       git:
