@@ -93,3 +93,4 @@
         - .zshrc
         - .tmux.conf
         - .vim
+        - .gitconfig
