@@ -29,6 +29,7 @@
         system: yes
         shell: /bin/nologin
       tags: ['install']
+      when: ansible_distribution == "Archlinux"
     - name: clone dotfiles
       git:
         repo: https://github.com/BasLangenberg/dots.git
@@ -55,6 +56,7 @@
         line: "%wheel ALL=(ALL) ALL"
         regexp: "^%wheel ALL="
       tags: ['install']
+      when: ansible_distribution == "Archlinux"
     - name: setup sudo for aur user
       lineinfile:
         path: /etc/sudoers
@@ -62,6 +64,7 @@
         line: "aur_user ALL=(ALL) NOPASSWD: ALL"
         regexp: "^aur_user ALL="
       tags: ['install']
+      when: ansible_distribution == "Archlinux"
     - name: import arch linux setup
       import_tasks: arch.yml
       when: ansible_distribution == "Archlinux"

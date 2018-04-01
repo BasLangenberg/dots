@@ -60,6 +60,7 @@ core_packages:
   - zsh
   - tree
   - ntp
+  - pavucontrol
 
 aur_packages:
 # Serquence matters here!
@@ -74,6 +75,7 @@ aur_packages:
   - polybar 
   - google-chrome
   - python-pywal
+  - pulsemixer
 
 post_core_packages:
 # Due to some AUR dependencies

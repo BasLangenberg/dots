@@ -2,3 +2,5 @@
 *.swp
 .netrwhist
 swap
+.vagrant
+*.log
