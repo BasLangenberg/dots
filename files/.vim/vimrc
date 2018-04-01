@@ -72,6 +72,10 @@ set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 au FocusLost * :wa              " Set vim to save the file on focus out.
 nnoremap <leader>, :nohlsearch<CR>
 
+" Seriously, why split differt from this...
+set splitbelow
+set splitright
+
 " Colours, Syntax, Etc
 syntax on
 " set background=dark
