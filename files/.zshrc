@@ -101,3 +101,8 @@ function precmd {
     #PROMPT="%{$fg[green]%}%c $(git_super_status)%{$fg[red]%}~%{$fg[white]%}? %{$reset_color%}"
     PROMPT="${USER}@${HOSTNAME}: $(pwd) $ "
 }
+
+# Add secrets if present
+if [[ -f ~/.secrets ]]; then
+  source ~/.secrets
+fi
