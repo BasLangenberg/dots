@@ -1,15 +1,4 @@
-" Should be revisioned completely, but this is working state for now
-" General Settings
-set enc=utf-8
-set fileencoding=utf-8
-
-" Tabs setup
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set autoindent
-
-" Plugins
+" Old Plugins
 " Under review... Should change to pathogen + versioned plugins
 "filetype off
 "
@@ -49,7 +38,19 @@ set autoindent
 "
 "call vundle#end()
 
+execute pathogen#infect()
+syntax on
 filetype plugin indent on
+
+" General Settings
+set enc=utf-8
+set fileencoding=utf-8
+
+" Tabs setup
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set autoindent
 
 " More general settings (after plugin)
 set backspace=indent,eol,start
@@ -83,7 +84,13 @@ let base16colorspace=256
 set laststatus=2
 " let g:airline_theme='base16_monokai'
 " colorscheme base16_monokai
-colorscheme wal
+
+" Want to blend colorscheme on Arch rice, but a sensible default when not on
+" Arch
+if filereadable("/etc/arch-release")
+  colorscheme wal
+" else
+endif
 
 " Enable mouse, cause I occasionally touch it anyway
 set mouse=a
@@ -163,3 +170,16 @@ nnoremap <C-H> <C-W><C-H>
 
 " Don't check Java files for syntax automatically
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['java'] }
+
+" Markdown magic?
+noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
+
+function! OpenMarkdownPreview() abort
+  if exists('s:markdown_job_id') && s:markdown_job_id > 0
+    call jobstop(s:markdown_job_id)
+    unlet s:markdown_job_id
+  endif
+  let s:markdown_job_id = jobstart('grip ' . shellescape(expand('%:p')))
+  if s:markdown_job_id <= 0 | return | endif
+  call system('open http://localhost:6419')
+endfunction
