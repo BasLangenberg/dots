@@ -106,3 +106,7 @@ function precmd {
 if [[ -f ~/.secrets ]]; then
   source ~/.secrets
 fi
+
+# Set locale for Flask development
+export LC_ALL=en_US.utf-8
+export LANG=en_US.utf-8
