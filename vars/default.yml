@@ -61,6 +61,8 @@ core_packages:
   - tree
   - ntp
   - pavucontrol
+  - python-pywal
+  - pulsemixer
 
 aur_packages:
 # Serquence matters here!
@@ -74,8 +76,6 @@ aur_packages:
   - sc-im
   - polybar 
   - google-chrome
-  - python-pywal
-  - pulsemixer
 
 post_core_packages:
 # Due to some AUR dependencies
