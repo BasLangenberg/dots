@@ -110,3 +110,7 @@ fi
 # Set locale for Flask development
 export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
+
+# Steam
+export DISTRIB_ID=arch
+export DISTRIB_RELEASE=$(uname -r)

@@ -1,8 +1,11 @@
 ---
 user: bas
 
-# The password is changeme secure AF
+# The password is changeme
 password: $6$oJZXJd8X$GH9aU51wye4FH2CIb9cw78opVzO7q1yPsBiEP40w9rv1EZujHbNNMepemSTgeG2V7e80amTtcBujM/Qi35r75.
+
+# Experimenting with KDE, will run when true
+install_kde: true
 
 core_packages:
   - vim
@@ -63,6 +66,7 @@ core_packages:
   - pavucontrol
   - python-pywal
   - pulsemixer
+  - w3m
 
 aur_packages:
 # Serquence matters here!
@@ -80,3 +84,7 @@ aur_packages:
 post_core_packages:
 # Due to some AUR dependencies
   - i3lock
+
+kde_packages:
+  - plasma
+  - kde-applications

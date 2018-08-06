@@ -11,6 +11,13 @@
     skip_pgp: yes
   with_items: "{{ aur_packages }}"
   tags: ['slow']
+- name: Install KDE packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ kde_packages }}"
+  tags: ['slow']
+  when: install_kde == true
 - name: Install extra packages
   pacman:
     name: "{{ item }}"
