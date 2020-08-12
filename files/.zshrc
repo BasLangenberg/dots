@@ -1,5 +1,9 @@
+
 # Defaults from zsh menu
 # Lines configured by zsh-newuser-install
+autoload -Uz compinit
+compinit
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -26,6 +30,9 @@ alias ll='ls -latr'
 alias v='vim'
 alias r='ranger' 
 alias gss='git status --short'
+alias data='cd /mnt/c/data'
+alias vagrant='powershell.exe vagrant'
+alias kdump='kubectl get all --all-namespaces'
 
 # Make completion:
 # - Case-insensitive.
@@ -114,3 +121,22 @@ export LANG=en_US.utf-8
 # Steam
 export DISTRIB_ID=arch
 export DISTRIB_RELEASE=$(uname -r)
+
+# Go
+PATH=${PATH}:/usr/local/go/bin
+GOPATH=/home/bas/dev/go
+GOBIN=/home/bas/dev/go/bin
+
+export PATH
+export GOPATH
+export GOBIN
+
+alias go="nocorrect go"
+# K8S
+source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
+
+# Docker compose
+PATH=${PATH}:/home/bas/.local/bin
+export PATH
