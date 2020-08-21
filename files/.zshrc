@@ -7,6 +7,9 @@ fi
 
 # Defaults from zsh menu
 # Lines configured by zsh-newuser-install
+autoload -Uz compinit
+compinit
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -34,9 +37,9 @@ alias v='vim'
 alias r='ranger' 
 alias gss='git status --short'
 alias data='cd /mnt/c/data'
-alias infra='cd /mnt/c/data/cobase-infra'
 alias tf="terraform"
-
+alias vagrant='powershell.exe vagrant'
+alias kdump='kubectl get all --all-namespaces'
 
 # Make completion:
 # - Case-insensitive.
@@ -151,3 +154,22 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Go
+PATH=${PATH}:/usr/local/go/bin
+GOPATH=/home/bas/dev/go
+GOBIN=/home/bas/dev/go/bin
+
+export PATH
+export GOPATH
+export GOBIN
+
+alias go="nocorrect go"
+# K8S
+source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
+
+# Docker compose
+PATH=${PATH}:/home/bas/.local/bin
+export PATH
