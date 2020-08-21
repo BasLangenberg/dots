@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Defaults from zsh menu
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -26,6 +33,10 @@ alias ll='ls -latr'
 alias v='vim'
 alias r='ranger' 
 alias gss='git status --short'
+alias data='cd /mnt/c/data'
+alias infra='cd /mnt/c/data/cobase-infra'
+alias tf="terraform"
+
 
 # Make completion:
 # - Case-insensitive.
@@ -45,6 +56,7 @@ alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias sudo='nocorrect sudo'
+alias go='nocorrect go'
 
 
 #
@@ -111,6 +123,31 @@ fi
 export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 
+# Go
+GOPATH=/mnt/c/data/go
+GOBIN=/mnt/c/data/go/bin
+GOFLAGS=-mod=vendor
+PATH=/home/bas/bin:/usr/local/go/bin:${PATH}:${GOBIN}
+
+export PATH
+export GOPATH
+export GOBIN
+
 # Steam
 export DISTRIB_ID=arch
 export DISTRIB_RELEASE=$(uname -r)
+
+# Kubernetes
+source <(kubectl completion zsh)
+
+export EDITOR=vim
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load some secrets
+# source ~/.buildvars
+source ~/.tfvars
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

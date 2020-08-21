@@ -85,6 +85,10 @@
       with_items:
         - wal
         - polybar
+    - name: clone dotfiles
+      git:
+        repo: https://github.com/romkatv/powerlevel10k.git
+        dest: "/home/{{ user }}/powerlevel10k"
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"
