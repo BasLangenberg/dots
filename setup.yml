@@ -89,11 +89,12 @@
       git:
         repo: https://github.com/romkatv/powerlevel10k.git
         dest: "/home/{{ user }}/powerlevel10k"
-    - name : fix permissions
+    - name : p10k - fix permissions
       file:
         path: "/home/{{ user }}/powerlevel10k"
         owner: "{{ user }}"
         group: "{{ user }}"
+        recurse: true
     - name: link dotfiles
       file:
         src: "/home/{{ user }}/dots/files/{{ item }}"
@@ -106,3 +107,13 @@
         - .tmux.conf
         - .vim
         - .gitconfig
+    - name: Clone fzf
+      git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: "/home/{{ user }}/.fzf"
+    - name: fzf - fix permissions 
+      file:
+        path: "/home/{{ user }}/.fzf"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        recurse: true
