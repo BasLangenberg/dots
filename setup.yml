@@ -117,3 +117,7 @@
         owner: "{{ user }}"
         group: "{{ user }}"
         recurse: true
+    - name : Install fzf
+      command:
+        cmd: "/home/{{ user }}/.fzf/install"
+        creates: "/home/{{ user }}/.fzf/bin/fzf"
