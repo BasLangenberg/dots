@@ -106,11 +106,15 @@
         - .zshrc
         - .tmux.conf
         - .vim
-        - .gitconfig
+    - name: check if fzf is in place
+      stat:
+        path: "/home/{{ user }}/dots"
+      register: fzf
     - name: Clone fzf
       git:
         repo: https://github.com/junegunn/fzf.git
         dest: "/home/{{ user }}/.fzf"
+      when: fzf.stat.isdir is not defined
     - name: fzf - fix permissions 
       file:
         path: "/home/{{ user }}/.fzf"
