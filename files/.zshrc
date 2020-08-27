@@ -23,11 +23,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# autologin tty1
-if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then;
-        startx
-fi
-
 # Variables
 EDITOR=vim
 
