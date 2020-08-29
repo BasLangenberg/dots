@@ -151,9 +151,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Go
-PATH=${PATH}:/usr/local/go/bin
 GOPATH=/home/bas/dev/go
 GOBIN=/home/bas/dev/go/bin
+PATH=${PATH}:${GOBIN}:/usr/local/go/bin
 
 export PATH
 export GOPATH
