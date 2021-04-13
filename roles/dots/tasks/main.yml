@@ -1,0 +1,118 @@
+---
+# tasks file for dots
+- name: change user shell
+  user:
+    name: "{{ user }}"
+    shell: /bin/zsh
+  tags: ['install']
+- name: Add user to docker group
+  user:
+    name: "{{ user }}"
+    groups: docker
+    append: yes
+  tags: ['install']
+- name: check if dotfiles are in place
+  stat:
+    path: "/home/{{ user }}/dots"
+  register: dots
+- name: clone dotfiles
+  git:
+    repo: https://github.com/BasLangenberg/dots.git
+    dest: "/home/{{ user }}/dots"
+  when: dots.stat.isdir is not defined
+- name: update permissions
+  file:
+    path: "/home/{{ user }}/dots"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: true
+  when: dots.stat.isdir is not defined
+- name: Add Kubernetes repo key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+- name: Add Kubernetes repository
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+- name: Add Hashicorp repo key
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+- name: Add Hashicorp repository
+  apt_repository:
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
+    state: present
+- name: Install packages
+  apt:
+    pkg: "{{ packages }}"
+    update_cache: yes
+    cache_valid_time: 3600
+- name: Install pip packages
+  pip:
+    name: "{{ pip_packages }}"
+- name: setup ranger folder
+  file:
+    path: "/home/{{ user }}/.config/ranger"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: directory
+    mode: 0755
+- name: link ranger config
+  file:
+    src: "/home/{{ user }}/dots/files/ranger_rc.conf"
+    path: "/home/{{ user }}/.config/ranger/rc.conf"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
+- name: link .config directories
+  file:
+    src: "/home/{{ user }}/dots/files/{{ item }}"
+    path: "/home/{{ user }}/.config/{{ item }}"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - wal
+    - polybar
+- name: clone powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "/home/{{ user }}/powerlevel10k"
+- name: p10k - fix permissions
+  file:
+    path: "/home/{{ user }}/powerlevel10k"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: true
+- name: link dotfiles
+  file:
+    src: "/home/{{ user }}/dots/files/{{ item }}"
+    path: "/home/{{ user }}/{{ item }}"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  with_items:
+    - .zshrc
+    - .tmux.conf
+    - .vim
+    - .gitconfig
+- name: check if fzf is in place
+  stat:
+    path: "/home/{{ user }}/.fzf"
+  register: fzf
+- name: Clone fzf
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "/home/{{ user }}/.fzf"
+  when: fzf.stat.isdir is not defined
+- name: fzf - fix permissions
+  file:
+    path: "/home/{{ user }}/.fzf"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    recurse: true
+- name: Install fzf
+  command:
+    cmd: "/home/{{ user }}/.fzf/install"
+    creates: "/home/{{ user }}/.fzf/bin/fzf"
