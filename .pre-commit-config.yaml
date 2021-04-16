@@ -30,6 +30,7 @@ repos:
   - id: shellcheck
     language: script
     args: [--severity=error]
+    exclude: roles/dots/files/.*zsh*
     additional_dependencies: []
 - repo: https://github.com/sirosen/fix-smartquotes
   rev: 0.2.0
