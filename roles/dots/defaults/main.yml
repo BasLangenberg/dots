@@ -1,22 +1,26 @@
 ---
 # defaults file for dots
 user: "{{ lookup('env', 'USER') }}"
-packages:
+essential_packages:
+  - zsh
   - vim
   - tmux
   - build-essential
   - git
+  - gpg-agent
   - unzip
   - unrar
   - wget
+  - rsync
+  - apt-transport-https
+  - tree
+  - ca-certificates
+  - curl
+
+additional_packages:
   - ranger
   - mupdf
   - pandoc
-  - rsync
-  - tree
-  - apt-transport-https
-  - ca-certificates
-  - curl
   - kubectl
   - terraform
   - shellcheck

@@ -71,6 +71,6 @@ URxvt*depth: 32
 URxvt.scrollBar: false
 URxvt.url-select.launcher: webview
 URxvt.url-select.underline: true
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
-URxvt.font: 		xft:monospace:size=11
+URxvt.resize-font.smaller:    C-Down
+URxvt.resize-font.bigger:    C-Up
+URxvt.font:         xft:monospace:size=11

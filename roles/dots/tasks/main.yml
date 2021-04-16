@@ -1,5 +1,10 @@
 ---
 # tasks file for dots
+- name: Install essential packages
+  apt:
+    pkg: "{{ essential_packages }}"
+    update_cache: yes
+    cache_valid_time: 3600
 - name: Add Kubernetes repo key
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -16,28 +21,23 @@
   apt_repository:
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
     state: present
-- name: Install packages
+- name: Install additional packages
   apt:
-    pkg: "{{ packages }}"
+    pkg: "{{ additional_packages }}"
     update_cache: yes
     cache_valid_time: 3600
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"
-- name: change user shell
-  user:
-    name: "{{ user }}"
-    shell: /bin/zsh
-  tags: ['install']
 - name: Create docker group
   group:
     name: "docker"
-- name: Add user to docker group
+- name: Create user
   user:
     name: "{{ user }}"
+    shell: /bin/zsh
     groups: ["docker"]
     append: yes
-  tags: ['install']
 - name: check if dotfiles are in place
   stat:
     path: "/home/{{ user }}/dots"
@@ -63,14 +63,14 @@
     mode: 0755
 - name: link ranger config
   file:
-    src: "/home/{{ user }}/dots/files/ranger_rc.conf"
+    src: "/home/{{ user }}/dots/roles/dots/files/ranger_rc.conf"
     path: "/home/{{ user }}/.config/ranger/rc.conf"
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
 - name: link .config directories
   file:
-    src: "/home/{{ user }}/dots/files/{{ item }}"
+    src: "/home/{{ user }}/dots/roles/dots/files/{{ item }}"
     path: "/home/{{ user }}/.config/{{ item }}"
     state: link
     owner: "{{ user }}"
@@ -90,7 +90,7 @@
     recurse: true
 - name: link dotfiles
   file:
-    src: "/home/{{ user }}/dots/files/{{ item }}"
+    src: "/home/{{ user }}/dots/roles/dots/files/{{ item }}"
     path: "/home/{{ user }}/{{ item }}"
     state: link
     owner: "{{ user }}"
@@ -100,6 +100,7 @@
     - .tmux.conf
     - .vim
     - .gitconfig
+    - .p10k.zsh
 - name: check if fzf is in place
   stat:
     path: "/home/{{ user }}/.fzf"
