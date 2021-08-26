@@ -29,7 +29,7 @@ EDITOR=vim
 # Aliasses
 alias ll='ls -latr'
 alias v='vim'
-alias r='ranger' 
+alias r='ranger'
 alias gss='git status --short'
 alias data='cd /mnt/c/data'
 alias tf="terraform"

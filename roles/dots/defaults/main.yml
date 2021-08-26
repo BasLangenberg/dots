@@ -1,0 +1,32 @@
+---
+# defaults file for dots
+user: "{{ lookup('env', 'USER') }}"
+essential_packages:
+  - zsh
+  - vim
+  - tmux
+  - build-essential
+  - git
+  - gpg-agent
+  - unzip
+  - unrar
+  - wget
+  - rsync
+  - apt-transport-https
+  - tree
+  - ca-certificates
+  - curl
+
+additional_packages:
+  - ranger
+  - mupdf
+  - pandoc
+  - kubectl
+  - terraform
+  - shellcheck
+
+pip_packages:
+  - molecule
+  - molecule-docker
+  - pre-commit
+  - yamllint
