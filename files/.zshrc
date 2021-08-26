@@ -36,6 +36,17 @@ alias tf="terraform"
 alias vagrant='powershell.exe vagrant'
 alias kdump='kubectl get all --all-namespaces'
 
+alias taa='terraform apply -auto-approve'
+alias tda='terraform destroy -auto-approve'
+alias tp='terraform plan'
+alias ti='terraform init'
+alias tgp='terragrunt plan --terragrunt-download-dir /tmp/terragrunt'
+alias tgpa='terragrunt plan-all --terragrunt-download-dir /tmp/terragrunt'
+alias tga='terragrunt apply --terragrunt-download-dir /tmp/terragrunt'
+alias tgaa='terragrunt apply-all --terragrunt-download-dir /tmp/terragrunt'
+
+alias projects='cd ${HOME}/projects'
+
 # Make completion:
 # - Case-insensitive.
 # - Accept abbreviations after . or _ or - (ie. f.b -> foo.bar).
@@ -86,6 +97,7 @@ setopt printexitvalue       # for non-zero exit status
 setopt pushdignoredups      # don't push multiple copies of same dir onto stack
 setopt pushdsilent          # don't print dir stack after pushing/popping
 setopt sharehistory         # share history across shells
+setopt rmstarsilent         # don't confirm rm *
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
 # These are the same but permit patterns (eg. a*b) to be used.
@@ -144,7 +156,7 @@ export EDITOR=vim
 
 # Load some secrets
 # source ~/.buildvars
-source ~/.tfvars
+[[ ! -f ~/.tfvars ]] || source ~/.tfvars
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -167,4 +179,8 @@ complete -F __start_kubectl k
 
 # Docker compose
 PATH=${PATH}:/home/bas/.local/bin
+export PATH
+
+# Java
+PATH=/usr/local/java/bin:${PATH}
 export PATH
