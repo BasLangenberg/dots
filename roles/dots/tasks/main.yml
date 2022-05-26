@@ -120,3 +120,8 @@
   command:
     cmd: "/home/{{ user }}/.fzf/install"
     creates: "/home/{{ user }}/.fzf/bin/fzf"
+- name: Download and install doctl
+  ansible.builtin.unarchive:
+    src: https://github.com/digitalocean/doctl/releases/download/v1.76.1/doctl-1.76.1-linux-amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
