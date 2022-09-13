@@ -26,6 +26,9 @@ compinit
 # Variables
 EDITOR=vim
 
+# Make sure Terragrunt does not download to the local directory but to temp
+export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt
+
 # Aliasses
 alias ll='ls -latr'
 alias v='vim'
@@ -41,9 +44,9 @@ alias tda='terraform destroy -auto-approve'
 alias tp='terraform plan'
 alias ti='terraform init'
 alias tgp='terragrunt plan --terragrunt-download-dir /tmp/terragrunt'
-alias tgpa='terragrunt plan-all --terragrunt-download-dir /tmp/terragrunt'
+alias tgpa='terragrunt run-all plan --terragrunt-download-dir /tmp/terragrunt'
 alias tga='terragrunt apply --terragrunt-download-dir /tmp/terragrunt'
-alias tgaa='terragrunt apply-all --terragrunt-download-dir /tmp/terragrunt'
+alias tgaa='terragrunt run-all apply--terragrunt-download-dir /tmp/terragrunt'
 
 alias projects='cd ${HOME}/projects'
 
@@ -175,7 +178,7 @@ alias go="nocorrect go"
 # K8S
 source <(kubectl completion zsh)
 alias k=kubectl
-complete -F __start_kubectl k
+# complete -F __start_kubectl k
 
 # Docker compose
 PATH=${PATH}:/home/bas/.local/bin
@@ -184,3 +187,6 @@ export PATH
 # Java
 PATH=/usr/local/java/bin:${PATH}
 export PATH
+
+# Alias for dockerd
+alias start-docker='nohup sudo -b dockerd < /dev/null > /var/log/dockerd.log 2>&1'
