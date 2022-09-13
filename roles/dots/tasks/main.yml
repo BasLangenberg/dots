@@ -120,3 +120,19 @@
   command:
     cmd: "/home/{{ user }}/.fzf/install"
     creates: "/home/{{ user }}/.fzf/bin/fzf"
+- name: Download and install doctl
+  ansible.builtin.unarchive:
+    src: https://github.com/digitalocean/doctl/releases/download/v1.76.1/doctl-1.76.1-linux-amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+- name: Download and install Kustomize
+  ansible.builtin.unarchive:
+    src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.5/kustomize_v4.5.5_linux_amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+- name: Download and install K9s
+  ansible.builtin.unarchive:
+    src: https://github.com/derailed/k9s/releases/download/v0.25.18/k9s_Linux_x86_64.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+
