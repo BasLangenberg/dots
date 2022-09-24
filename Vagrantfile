@@ -9,9 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/xenial64"
+    config.vm.box = "bento/ubuntu-22.04"
     ubuntu.vm.hostname = 'ubuntu'
-    ubuntu.vm.box_url = "ubuntu/xenial64"
 
     ubuntu.vm.network :private_network, ip: "192.168.56.101"
 
@@ -20,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       v.customize ["modifyvm", :id, "--memory", 512]
     end
 
-    ubuntu.vm.provision :shell, path: "bootstrap_ubuntu.sh"
+    ubuntu.vm.provision :shell, path: "bootstrap.sh"
 
     ubuntu.vm.provision :ansible do |ansible|
       ansible.extra_vars = {

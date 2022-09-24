@@ -1,5 +1,8 @@
 # TODO
 
+## Fixes
+- Update fzf if newer version is there
+- Update p10k if newer version is there
 ## Add software
 - terraform versions
 - terragrunt

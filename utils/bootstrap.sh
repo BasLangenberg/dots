@@ -72,4 +72,4 @@ dialog --defaultno --title "Provision userspace" --yesno "Base system should be 
 dialog --defaultno --title "Final Qs" --yesno "Eject CD/ROM (if any)?"  5 30 && eject
 dialog --defaultno --title "Final Qs" --yesno "Reboot computer?"  5 30 && reboot
 dialog --defaultno --title "Final Qs" --yesno "Return to chroot environment?"  6 30 && arch-chroot /mnt
-clear 
+clear

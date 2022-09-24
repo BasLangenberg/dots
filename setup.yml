@@ -4,3 +4,4 @@
   roles:
   - dots
   - gantsign.golang
+  - giner.tfenv

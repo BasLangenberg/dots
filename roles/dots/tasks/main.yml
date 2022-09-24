@@ -120,19 +120,33 @@
   command:
     cmd: "/home/{{ user }}/.fzf/install"
     creates: "/home/{{ user }}/.fzf/bin/fzf"
+- name: Get latest release of doctl
+  community.general.github_release:
+    user: digitalocean
+    repo: doctl
+    action: latest_release
+  register: doctl_version
 - name: Download and install doctl
   ansible.builtin.unarchive:
-    src: https://github.com/digitalocean/doctl/releases/download/v1.76.1/doctl-1.76.1-linux-amd64.tar.gz
+    src: "https://github.com/digitalocean/doctl/releases/download/{{ doctl_version.tag }}/doctl-{{ doctl_version.tag[1:] }}-linux-amd64.tar.gz"
     dest: /usr/local/bin
     remote_src: yes
 - name: Download and install Kustomize
   ansible.builtin.unarchive:
-    src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.5/kustomize_v4.5.5_linux_amd64.tar.gz
+    src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.7/kustomize_v4.5.7_linux_amd64.tar.gz
     dest: /usr/local/bin
     remote_src: yes
+- name: Get latest release of k9s
+  community.general.github_release:
+    user: derailed
+    repo: k9s
+    action: latest_release
+  register: k9s_ver
+- name: debug
+  debug:
+    var: k9s_ver
 - name: Download and install K9s
   ansible.builtin.unarchive:
-    src: https://github.com/derailed/k9s/releases/download/v0.25.18/k9s_Linux_x86_64.tar.gz
+    src: https://github.com/derailed/k9s/releases/download/{{ k9s_ver.tag }}/k9s_Linux_x86_64.tar.gz
     dest: /usr/local/bin
     remote_src: yes
-

@@ -16,6 +16,9 @@ essential_packages:
   - tree
   - ca-certificates
   - curl
+  - jq
+  - python3
+  - python3-pip
 
 additional_packages:
   - ranger
@@ -30,3 +33,4 @@ pip_packages:
   - molecule-docker
   - pre-commit
   - yamllint
+  - github3.py
