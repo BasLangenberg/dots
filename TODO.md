@@ -1,16 +1,18 @@
 # TODO
 
-## Fixes
-- Update fzf if newer version is there
-- Update p10k if newer version is there
+- Fixes
+  - Update fzf if newer version is there
+  - Update p10k if newer version is there
 
-## Add software
-- terraform versions
-- terragrunt
-- kubectx
-- kubens
-- chefdk
-- terragrunt-atlantis-config
-- ripgrep
+- Add software
+  - terraform versions
+  - terragrunt
+  - kubectx
+  - kubens
+  - chefdk
+  - terragrunt-atlantis-config
+  - ripgrep
 
-## Install Docker without using docker desktop
+- Install Docker without using docker desktop
+
+- Fix root / become issues
