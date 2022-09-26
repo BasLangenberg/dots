@@ -27,6 +27,19 @@ additional_packages:
   - kubectl
   - terraform
   - shellcheck
+  # Neovim dependencies
+  - ninja-build
+  - gettext
+  - libtool
+  - libtool-bin
+  - autoconf
+  - automake
+  - cmake
+  - g++
+  - pkg-config
+  - unzip
+  - curl
+  - doxygen
 
 pip_packages:
   - molecule
