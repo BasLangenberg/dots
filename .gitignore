@@ -7,3 +7,4 @@ swap
 .cache
 venv
 kitchen.yml
+.kitchen

@@ -127,7 +127,7 @@
     recurse: true
 - name: Install fzf
   command:
-    cmd: "/home/{{ user }}/.fzf/install"
+    cmd: "/home/{{ user }}/.fzf/install --all"
     creates: "/home/{{ user }}/.fzf/bin/fzf"
 - name: Get latest release of doctl
   community.general.github_release:
