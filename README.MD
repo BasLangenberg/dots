@@ -24,7 +24,7 @@ For testing with an Ubuntu, use the provided Vagrantfile with this repo.
 On 2022-09-24, issues with pip3 and cryptography / pyOpenssl were discovered. They can be fixed with this script
 
 ```bash
-wget https://pip.pypa.io/en/stable/installation/
+wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 sudo pip3 install cryptography --upgrade
 sudo pip3 install pyOpenssl --upgrade
