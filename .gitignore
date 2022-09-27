@@ -6,3 +6,4 @@ swap
 *.log
 .cache
 venv
+kitchen.yml
