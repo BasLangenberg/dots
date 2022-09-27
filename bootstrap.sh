@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Fix path
+PATH=${HOME}/.local/bin:${PATH}
+
 # Updates, Upgrades and packages
 sudo apt update
 sudo apt upgrade -y
