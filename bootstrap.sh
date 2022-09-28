@@ -17,8 +17,9 @@ python3 get-pip.py
 ~/.local/bin/pip3 install --upgrade ansible molecule
 
 # Magic
+# Assuming passwordless sudo
 ~/.local/bin/ansible-galaxy install -r roles/requirements.yml
-~/.local/bin/ansible-playbook -i hosts setup.yml -K
+~/.local/bin/ansible-playbook -i hosts setup.yml
 
 # Setup pre-commit
 pre-commit install
