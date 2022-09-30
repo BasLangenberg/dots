@@ -192,3 +192,6 @@ export PATH
 
 # Alias for dockerd
 alias start-docker='nohup sudo -b dockerd < /dev/null > /var/log/dockerd.log 2>&1'
+
+# Add tfenv
+PATH=${HOME}/tfenv/bin:${PATH}
