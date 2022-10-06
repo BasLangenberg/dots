@@ -24,4 +24,7 @@ python3 get-pip.py
 # Setup pre-commit
 pre-commit install
 
+# Cleanup
+rm get-pip*
+
 exit 0

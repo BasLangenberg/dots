@@ -8,3 +8,5 @@ swap
 venv
 kitchen.yml
 .kitchen
+get-pip*
+*.gitconfig

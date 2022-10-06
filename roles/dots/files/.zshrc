@@ -195,3 +195,6 @@ alias start-docker='nohup sudo -b dockerd < /dev/null > /var/log/dockerd.log 2>&
 
 # Add tfenv
 PATH=${HOME}/tfenv/bin:${PATH}
+
+# Neovim era
+alias vim=nvim

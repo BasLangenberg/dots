@@ -87,6 +87,7 @@
   with_items:
     - wal
     - polybar
+    - nvim
 - name: clone powerlevel10k
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
@@ -159,3 +160,5 @@
     dest: /usr/local/bin
     remote_src: yes
   become: true
+- name: Build neovim
+  import_tasks: neovim.yml
