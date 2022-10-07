@@ -32,8 +32,8 @@ sudo pip3 install pyOpenssl --upgrade
 
 ## Credits
 
-Inspiration came from [LARBS](https://larbs.xyz/)
-
-Dotfiles idea bororowed from [LARBS](https://larbs.xyz/) and [wincent](https://github.com/wincent/wincent)
+Initial inspiration came from [LARBS](https://larbs.xyz/), the dotfiles idea bororowed from [LARBS](https://larbs.xyz/) and [wincent](https://github.com/wincent/wincent)
 
 AUR Support implemented by [ansible-aur](https://github.com/pigmonkey/ansible-aur), using commit 33929f9 (Dec 3, 2017)
+
+October 2022, I moved to Neovim as I was inspired by the amazing content create by [ThePrimeagen](https://github.com/ThePrimeagen) ([Github](https://github.com/ThePrimeagen/.dotfiles) and [TJ DeVries](https://github.com/tjdevries) ([Github](https://github.com/tjdevries/config_manager))
