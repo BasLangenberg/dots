@@ -26,7 +26,7 @@ compinit
 # End of lines added by compinstall
 
 # Variables
-EDITOR=vim
+EDITOR=nvim
 
 # Make sure Terragrunt does not download to the local directory but to temp
 export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt
