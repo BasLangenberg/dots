@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/home/bas/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/bas/.local/share/nvim/site/pack/packer/start/packer.nvim",
