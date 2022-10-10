@@ -15,6 +15,8 @@
   - [ ] LSP LSP LSP
   - [ ] Languages
     - [ ] Go
+      - [ ] Fix install
+      - [ ] Add Gopls and other tooling
     - [ ] Rust (???)
     - [ ] Terraform / Terragrunt / HCL
     - [ ] YAML / K8S
