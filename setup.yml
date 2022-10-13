@@ -1,6 +1,6 @@
 ---
 - hosts: all
   roles:
-  - dots
   - gantsign.golang
+  - dots
   - giner.tfenv
