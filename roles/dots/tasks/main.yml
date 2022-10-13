@@ -142,6 +142,18 @@
     dest: /usr/local/bin
     remote_src: yes
   become: true
+- name: Get latest release of tflint
+  community.general.github_release:
+    user: terraform-linters
+    repo: tflint
+    action: latest_release
+  register: tflint_version
+- name: Download and install tflint
+  ansible.builtin.unarchive:
+    src: "https://github.com/terraform-linters/tflint/releases/download/{{ tflint_version.tag }}/tflint_linux_amd64.zip"
+    dest: /usr/local/bin
+    remote_src: yes
+  become: true
 - name: Download and install Kustomize
   ansible.builtin.unarchive:
     src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.7/kustomize_v4.5.7_linux_amd64.tar.gz

@@ -23,13 +23,16 @@
 - [ ] Neovim
   - [ ] Telescope
   - [ ] Luafy your old vimrc
-  - [ ] LSP LSP LSP
+  - [ ] Treesitter
+  - [ ] vim-cmp
   - [ ] Languages
+    - [ ] LSP LSP LSP
     - [ ] Go
       - [ ] Fix install
       - [ ] Add Gopls and other tooling
     - [ ] Rust (???)
-    - [ ] Terraform / Terragrunt / HCL
+    - [x] Terraform / Terragrunt / HCL
+      - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [ ] YAML / K8S
     - [ ] Ruby / Chef
     - [ ] Python / Ansible

@@ -40,6 +40,7 @@ additional_packages:
   - unzip
   - curl
   - doxygen
+  - terraform-ls
 
 pip_packages:
   - molecule

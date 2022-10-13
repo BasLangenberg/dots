@@ -16,3 +16,6 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-- Terraform
+require'lspconfig'.terraformls.setup{}
