@@ -38,7 +38,6 @@ alias r='ranger'
 alias gss='git status --short'
 alias data='cd /mnt/c/data'
 alias tf="terraform"
-alias vagrant='powershell.exe vagrant'
 alias kdump='kubectl get all --all-namespaces'
 
 alias taa='terraform apply -auto-approve'
