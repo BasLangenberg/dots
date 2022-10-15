@@ -12,7 +12,7 @@
 - name: Checkout stable
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && git checkout stable"
 - name: Build neovim
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
 - name: Install neovim
   become: true
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
