@@ -29,6 +29,8 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   -- Comments
   use {
     'numToStr/Comment.nvim',

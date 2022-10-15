@@ -32,6 +32,9 @@
     update_cache: yes
     cache_valid_time: 3600
   become: true
+- name: Install go packages
+  command:
+    cmd: "source /etc/profile.d/golang.sh && go install golang.org/x/tools/gopls@latest"
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"
