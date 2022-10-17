@@ -50,6 +50,9 @@
 
 - [ ] Look into potential tmux awesomeness
 
+- [ ] zsh
+  - [ ] Fix autocorrect crap
+
 - [ ] Cleanup
   - [ ] zshrc
   - [ ] Check other files (Cleanup quickly or add to list)
