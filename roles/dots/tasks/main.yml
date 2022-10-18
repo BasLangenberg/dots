@@ -32,9 +32,10 @@
     update_cache: yes
     cache_valid_time: 3600
   become: true
-- name: Install go packages
-  command:
-    cmd: "source /etc/profile.d/golang.sh && go install golang.org/x/tools/gopls@latest"
+- name: Install gopls
+  ansible.builtin.shell: source /etc/profile.d/golang.sh && go install golang.org/x/tools/gopls@latest
+  args:
+    executable: /bin/bash
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"
@@ -114,6 +115,18 @@
     - .vim
     - .gitconfig
     - .p10k.zsh
+- name: Create bin directory
+  ansible.builtin.file:
+    path: "/home/{{ user }}/bin"
+    state: directory
+    mode: '0755'
+- name: link scripts
+  file:
+    src: "/home/{{ user }}/dots/roles/dots/files/scripts"
+    path: "/home/{{ user }}/bin/scripts"
+    state: link
+    owner: "{{ user }}"
+    group: "{{ user }}"
 - name: check if fzf is in place
   stat:
     path: "/home/{{ user }}/.fzf"

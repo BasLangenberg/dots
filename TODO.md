@@ -16,20 +16,20 @@
 
 - [ ] Install Docker without using docker desktop
 
-- [ ] Review tmux
-
-- [ ] Fix copy/paste!
+- [ ] Fix copy/paste! (Host integration)
 
 - [ ] Neovim
-  - [ ] Telescope
+  - [ ] Only build Neovim when new stable commit exists
+    - [ ] https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html
+  - [x] Telescope
   - [ ] Luafy your old vimrc
   - [ ] Treesitter
-  - [ ] vim-cmp
+  - [x] vim-cmp
   - [ ] Languages
-    - [ ] LSP LSP LSP
-    - [ ] Go
-      - [ ] Fix install
-      - [ ] Add Gopls and other tooling
+    - [x] LSP LSP LSP
+    - [x] Go
+      - [x] Fix install
+      - [x] Add Gopls and other tooling
     - [ ] Rust (???)
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
@@ -46,7 +46,7 @@
   - [ ] terragrunt-atlantis-config
   - [ ] ripgrep
 
-- [ ] Kitchen configuration for Digital Ocean (Quick tests)
+- [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
 
 - [ ] Look into potential tmux awesomeness
 
