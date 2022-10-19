@@ -58,3 +58,7 @@
 - [ ] Cleanup
   - [ ] zshrc
   - [ ] Check other files (Cleanup quickly or add to list)
+
+- [ ] SSH
+  - [ ] Include key?!?!?!
+  - [ ] ssh-agent on startup
