@@ -206,3 +206,6 @@ PATH=${HOME}/bin/scripts:${PATH}
 
 # tmux-sessionizer binding
 bindkey -s '^f' "tmux-sessionizer\n"
+
+# Rust
+PATH=${HOME}/.cargo/bin:${PATH}

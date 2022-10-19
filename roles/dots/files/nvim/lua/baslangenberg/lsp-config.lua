@@ -19,3 +19,27 @@ lspconfig.gopls.setup {
 
 -- Terraform
 require'lspconfig'.terraformls.setup{}
+
+-- Rust
+lspconfig.rust_analyzer.setup({
+    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})

@@ -18,9 +18,10 @@
 
 - [ ] Fix copy/paste! (Host integration)
 
+
 - [ ] Neovim
   - [ ] Only build Neovim when new stable commit exists
-    - [ ] https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html
+    - [ ] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
   - [ ] Luafy your old vimrc
   - [ ] Treesitter
@@ -30,7 +31,8 @@
     - [x] Go
       - [x] Fix install
       - [x] Add Gopls and other tooling
-    - [ ] Rust (???)
+    - [ ] Rust (???), RUST!
+      - [ ] [https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/](some instructions to walk through)
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [ ] YAML / K8S
