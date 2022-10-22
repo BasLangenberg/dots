@@ -37,6 +37,28 @@ return require('packer').startup(function(use)
     config = function()
         require('Comment').setup()
     end
-}
+  }
+
+  -- Writing, zenmode + twilight
+  use({
+    "Pocco81/true-zen.nvim",
+    config = function()
+      require("true-zen").setup {
+        -- your config goes here
+        -- or just leave it empty :)
+      }
+    end
+  })
+
+  use {
+    "folke/twilight.nvim",
+    config = function()
+      require("twilight").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
 end)

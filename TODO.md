@@ -26,18 +26,24 @@
   - [ ] Luafy your old vimrc
   - [ ] Treesitter
   - [x] vim-cmp
+  - [ ] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
   - [ ] Languages
     - [x] LSP LSP LSP
     - [x] Go
       - [x] Fix install
       - [x] Add Gopls and other tooling
-    - [ ] Rust (???), RUST!
-      - [ ] [https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/](some instructions to walk through)
+    - [x] Rust (???), RUST!
+      - [x] [https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/](some instructions to walk through)
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [ ] YAML / K8S
     - [ ] Ruby / Chef
     - [ ] Python / Ansible
+    - [ ] Node
+    - [ ] Markdown Writing
+      - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
+      - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
+      - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
 
 - [ ] Add software
   - [x] terraform versions
@@ -46,11 +52,12 @@
   - [ ] kubens
   - [ ] chefdk
   - [ ] terragrunt-atlantis-config
-  - [ ] ripgrep
+  - [x] ripgrep
 
 - [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
 
 - [ ] Look into potential tmux awesomeness
+  - [ ] Alternate session (Jump between sessions quickly)
 
 - [ ] zsh
   - [ ] Fix autocorrect crap

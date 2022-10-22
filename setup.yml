@@ -2,5 +2,6 @@
 - hosts: all
   roles:
   - gantsign.golang
+  - {role: geerlingguy.nodejs, become: yes}
   - dots
   - giner.tfenv

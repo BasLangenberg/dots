@@ -1,3 +1,4 @@
 roles:
   - name: giner.tfenv
   - name: gantsign.golang
+  - name: geerlingguy.nodejs
