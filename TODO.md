@@ -46,6 +46,8 @@
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
+    - [ ] Run PackerSync
+      - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 - [ ] Add software
   - [x] terraform versions
