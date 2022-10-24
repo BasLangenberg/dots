@@ -2,6 +2,7 @@
 
 - [x] Fix root / become issues
 - [ ] Add update check + easily callable update command
+  - [ ] https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
 
 - [ ] Aliasses
   - [ ] Local alias file (For stuff that's not portable, e.g. jump to work related repos on a work machine)
