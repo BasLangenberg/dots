@@ -1,6 +1,7 @@
+---
 # Stolen from: https://github.com/ThePrimeagen/ansible/blob/master/tasks/nvim-setup.ym
-- name: Remove neovim
-  shell: rm -rf ~/neovim
+# - name: Remove neovim
+#   shell: rm -rf ~/neovim
 - name: Get Packer
   ansible.builtin.git:
     repo: 'https://github.com/wbthomason/packer.nvim'
@@ -9,16 +10,18 @@
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: "{{ lookup('env', 'HOME') }}/neovim"
-- name: Checkout stable
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && git checkout stable"
+    version: stable
+  register: neovim_git
 - name: Build neovim
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
+  when: neovim_git.changed
 - name: Install neovim
   become: true
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
-#- name: Neovim Plugin Development 1
+  when: neovim_git.changed
+# - name: Neovim Plugin Development 1
 #  become: true
 #  apt: name=luarocks
-#- name: Neovim Plugin Development 2 luacheck
+# - name: Neovim Plugin Development 2 luacheck
 #  become: true
 #  shell: luarocks install luacheck

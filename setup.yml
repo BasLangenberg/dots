@@ -1,7 +1,15 @@
 ---
 - hosts: all
+  vars:
+    docker_service_manage: false
+    docker_users:
+      - "bas"
+    docker_install_compose: true
+
+
   roles:
-  - gantsign.golang
-  - {role: geerlingguy.nodejs, become: yes}
-  - dots
-  - giner.tfenv
+    - gantsign.golang
+    - {role: geerlingguy.nodejs, become: yes}
+    - dots
+    - giner.tfenv
+    - {role: geerlingguy.docker, become: yes}

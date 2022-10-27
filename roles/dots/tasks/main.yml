@@ -188,6 +188,13 @@
     dest: /usr/local/bin
     remote_src: yes
   become: true
+- name: Download and install win32yank
+  ansible.builtin.unarchive:
+    src: https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: '0755'
+  become: true
 - name: Build neovim
   import_tasks: neovim.yml
 - name: check if cargo is installed

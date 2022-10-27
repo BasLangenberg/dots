@@ -1,29 +1,26 @@
 # TODO
 
 - [x] Fix root / become issues
-- [ ] Add update check + easily callable update command
-  - [ ] https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
-  - [ ] https://rakhesh.com/coding/git-view-the-commit-log-of-a-remote-branch/
 
-- [ ] Aliasses
-  - [ ] Local alias file (For stuff that's not portable, e.g. jump to work related repos on a work machine)
-  - [ ] git shortcuts (People probably thought about this a lot already)
-    - [ ] checkout
-    - [ ] commit
-    - [ ] push/pull/fetch
+- [x] Aliasses
+  - [x] Local alias file (For stuff that's not portable, e.g. jump to work related repos on a work machine)
+  - [x] git shortcuts (People probably thought about this a lot already)
+    - [x] checkout
+    - [x] commit
+    - [x] push/pull/fetch
 
-- [ ] Fixes
-  - [ ] Update fzf if newer version is there
-  - [ ] Update p10k if newer version is there
+- [x] Fixes
+  - [x] Update fzf if newer version is there
+  - [x] Update p10k if newer version is there
 
-- [ ] Install Docker without using docker desktop
+- [x] Install Docker without using docker desktop
 
-- [ ] Fix copy/paste! (Host integration)
+- [x] Fix copy/paste! (Host integration / win32yank)
 
 
-- [ ] Neovim
-  - [ ] Only build Neovim when new stable commit exists
-    - [ ] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
+- [x] Neovim
+  - [x] Only build Neovim when new stable commit exists
+    - [x] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
   - [ ] Luafy your old vimrc
   - [ ] Treesitter
@@ -61,7 +58,7 @@
 - [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
 
 - [ ] Look into potential tmux awesomeness
-  - [ ] Alternate session (Jump between sessions quickly)
+  - [x] Alternate session (Jump between sessions quickly)
 
 - [ ] zsh
   - [ ] Fix autocorrect crap

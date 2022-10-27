@@ -4,7 +4,13 @@
 [core]
     autocrlf = input
 [alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    dirdiff = diff -p --stat -w --no-index
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  dirdiff = diff -p --stat -w --no-index
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  p = pull
+  f = fetch
 [push]
     default = simple
