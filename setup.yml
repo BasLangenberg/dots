@@ -5,6 +5,8 @@
     docker_users:
       - "bas"
     docker_install_compose: true
+    nodejs_npm_global_packages:
+      - name: neovim
 
 
   roles:

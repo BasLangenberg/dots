@@ -23,7 +23,6 @@
     - [x] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
   - [ ] Luafy your old vimrc
-  - [ ] Treesitter
   - [x] vim-cmp
   - [ ] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
   - [ ] Languages
@@ -45,6 +44,8 @@
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
     - [ ] Run PackerSync
       - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  - [ ] Treesitter
+    - [ ] Initially including support for all lsp languages?
 
 - [ ] Add software
   - [x] terraform versions

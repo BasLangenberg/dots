@@ -41,6 +41,9 @@ additional_packages:
   - doxygen
   - terraform-ls
   - ripgrep
+  - ruby
+  - ruby-dev
+  - fd-find
 
 pip_packages:
   - molecule
@@ -48,3 +51,4 @@ pip_packages:
   - pre-commit
   - yamllint
   - github3.py
+  - neovim

@@ -39,6 +39,14 @@
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"
+- name: Install neovim npm package
+  community.general.npm:
+    name: neovim
+    global: true
+  become: true
+- name: Install ruby gems
+  command: "gem install neovim"
+  become: true
 - name: Create docker group
   group:
     name: "docker"
