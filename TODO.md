@@ -22,6 +22,7 @@
   - [x] Only build Neovim when new stable commit exists
     - [x] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
+
   - [ ] Luafy your old vimrc
   - [x] vim-cmp
   - [ ] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
@@ -46,6 +47,7 @@
       - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   - [ ] Treesitter
     - [ ] Initially including support for all lsp languages?
+  - [ ] [PackerSync on install](https://github.com/wbthomason/packer.nvim/issues/700)
 
 - [ ] Add software
   - [x] terraform versions
