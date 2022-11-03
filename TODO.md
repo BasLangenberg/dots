@@ -36,6 +36,8 @@
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [ ] YAML / K8S
+      - [ ] https://github.com/redhat-developer/yaml-language-server
+      - [ ] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
     - [ ] Ruby / Chef
     - [ ] Python / Ansible
     - [ ] Node

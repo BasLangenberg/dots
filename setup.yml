@@ -8,7 +8,6 @@
     nodejs_npm_global_packages:
       - name: neovim
 
-
   roles:
     - gantsign.golang
     - {role: geerlingguy.nodejs, become: yes}
