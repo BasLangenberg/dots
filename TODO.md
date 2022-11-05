@@ -35,11 +35,13 @@
       - [x] [https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/](some instructions to walk through)
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
-    - [ ] YAML / K8S
-      - [ ] https://github.com/redhat-developer/yaml-language-server
-      - [ ] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
-    - [ ] Ruby / Chef
-    - [ ] Python / Ansible
+    - [x] YAML / K8S / Ansible
+      - [x] https://github.com/redhat-developer/yaml-language-server
+      - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
+    - [x] Ruby
+      - [x] Solargraph
+      - [ ] Chef syntax
+    - [ ] Python
     - [ ] Node
     - [ ] Markdown Writing
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
@@ -67,6 +69,7 @@
 
 - [ ] zsh
   - [ ] Fix autocorrect crap
+  - [ ] Use terminal theme to match vim
 
 - [ ] Cleanup
   - [ ] zshrc

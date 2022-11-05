@@ -52,3 +52,7 @@ pip_packages:
   - yamllint
   - github3.py
   - neovim
+
+npm_packages:
+  - neovim
+  - yaml-language-server
