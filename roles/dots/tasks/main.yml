@@ -170,6 +170,31 @@
     dest: /usr/local/bin
     remote_src: yes
   become: true
+- name: Get latest release of kubectx / kubens
+  community.general.github_release:
+    user: ahmetb
+    repo: kubectx
+    action: latest_release
+  register: kubectx_version
+- name: Download and install doctl
+  ansible.builtin.unarchive:
+    src: "https://github.com/ahmetb/kubectx/releases/download/{{ kubectx_version.tag }}/kubectx_v{{ kubectx_version.tag[1:] }}_linux_x86_64.tar.gz"
+    dest: /usr/local/bin
+    remote_src: yes
+  become: true
+- name: Get latest release of terragrunt
+  community.general.github_release:
+    user: gruntwork-io
+    repo: terragrunt
+    action: latest_release
+  register: terragrunt_version
+- name: Download and install doctl
+  get_url:
+    url: "https://github.com/gruntwork-io/terragrunt/releases/download/{{ terragrunt_version.tag }}/terragrunt_linux_amd64"
+    dest: /usr/local/bin/terragrunt
+    mode: '0755'
+    force: 'yes'
+  become: true
 - name: Get latest release of tflint
   community.general.github_release:
     user: terraform-linters
@@ -212,7 +237,7 @@
 - name: check if cargo is installed
   shell: command -v cargo
   register: cargo_exists
-  ignore_errors: yes
+  ignore_errors: true
   tags:
     - rust
 - name: Download Installer

@@ -56,3 +56,5 @@ pip_packages:
 npm_packages:
   - neovim
   - yaml-language-server
+  - pyright
+  - typescript

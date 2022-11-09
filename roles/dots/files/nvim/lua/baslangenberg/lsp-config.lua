@@ -101,3 +101,15 @@ require'lspconfig'.yamlls.setup {
     }
   }
 }
+
+-- Python
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- Typescript
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}

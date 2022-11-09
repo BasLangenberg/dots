@@ -41,25 +41,24 @@
     - [x] Ruby
       - [x] Solargraph
       - [ ] Chef syntax
-    - [ ] Python
-    - [ ] Node
+    - [x] Python
+    - [x] Node
     - [ ] Markdown Writing
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
     - [ ] Run PackerSync
       - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  - [ ] Treesitter
-    - [ ] Initially including support for all lsp languages?
+  - [x] Treesitter
+    - [x] Initially including support for all lsp languages?
   - [ ] [PackerSync on install](https://github.com/wbthomason/packer.nvim/issues/700)
 
 - [ ] Add software
   - [x] terraform versions
-  - [ ] terragrunt
-  - [ ] kubectx
-  - [ ] kubens
+  - [x] terragrunt
+  - [x] kubectx
+  - [x] kubens
   - [ ] chefdk
-  - [ ] terragrunt-atlantis-config
   - [x] ripgrep
 
 - [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
