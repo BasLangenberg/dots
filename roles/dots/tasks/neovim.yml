@@ -26,3 +26,6 @@
 # - name: Neovim Plugin Development 2 luacheck
 #  become: true
 #  shell: luarocks install luacheck
+- name: Install plugins
+  shell: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+  when: neovim_git.changed
