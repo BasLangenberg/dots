@@ -44,6 +44,7 @@ additional_packages:
   - ruby
   - ruby-dev
   - fd-find
+  - sshpass
 
 pip_packages:
   - molecule
