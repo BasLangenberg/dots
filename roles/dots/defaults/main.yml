@@ -45,6 +45,9 @@ additional_packages:
   - ruby-dev
   - fd-find
   - sshpass
+  - chef
+  - test-kitchen
+  - vagrant
 
 pip_packages:
   - molecule

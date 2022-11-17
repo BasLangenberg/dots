@@ -51,6 +51,9 @@
 - name: Install solargraph ruby gem
   command: "gem install solargraph"
   become: true
+- name: Install kitchen-digitalocean ruby gem
+  command: "gem install kitchen-digitalocean"
+  become: true
 - name: Create docker group
   group:
     name: "docker"
