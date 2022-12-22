@@ -228,6 +228,25 @@
     dest: /usr/local/bin
     remote_src: yes
   become: true
+- name: Get latest release of helm
+  community.general.github_release:
+    user: helm
+    repo: helm
+    action: latest_release
+  register: helm_ver
+- name: Download and unzip helm
+  ansible.builtin.unarchive:
+    src: https://get.helm.sh/helm-{{ helm_ver.tag }}-linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
+- name: Install helm
+  ansible.builtin.copy:
+    src: /tmp/linux-amd64/helm
+    dest: /usr/local/bin
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+  become: true
 - name: Download and install win32yank
   ansible.builtin.unarchive:
     src: https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
