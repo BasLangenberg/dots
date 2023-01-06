@@ -12,7 +12,21 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
+  use { -- LSP Configuration & Plugins
+
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
+
+      -- Additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
+    },
+  }
 
   -- nvim-cmp / autocompletion
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -66,5 +80,15 @@ return require('packer').startup(function(use)
       }
     end
   }
+
+  -- Git plugins
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb' -- Github plugins
+  use 'lewis6991/gitsigns.nvim' -- Fancy Git integration in buffers
+
+  -- Fancy pants
+  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
 end)
