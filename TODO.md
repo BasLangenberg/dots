@@ -75,3 +75,6 @@
 - [ ] SSH
   - [ ] Include key?!?!?!
   - [ ] ssh-agent on startup
+
+- [ ] Tmux sessionizer: In temporary window
+- [ ] Fix awkward copy-paste in Vim
