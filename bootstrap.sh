@@ -18,7 +18,7 @@ python3 get-pip.py
 
 # Magic
 # Assuming passwordless sudo
-~/.local/bin/ansible-galaxy install -r roles/requirements.yml
+~/.local/bin/ansible-galaxy install -f -r roles/requirements.yml
 ~/.local/bin/ansible-playbook -i hosts setup.yml
 
 # Setup pre-commit
