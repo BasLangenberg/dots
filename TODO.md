@@ -25,7 +25,7 @@
 
   - [ ] Luafy your old vimrc
   - [x] vim-cmp
-  - [ ] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+  - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
   - [ ] Languages
     - [x] LSP LSP LSP
     - [x] Go
@@ -78,3 +78,4 @@
 
 - [ ] Tmux sessionizer: In temporary window
 - [ ] Fix awkward copy-paste in Vim
+- [ ] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)

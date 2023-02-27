@@ -36,6 +36,27 @@
   ansible.builtin.shell: source /etc/profile.d/golang.sh && go install golang.org/x/tools/gopls@latest
   args:
     executable: /bin/bash
+- name: Install goimports
+  ansible.builtin.shell: source /etc/profile.d/golang.sh && go install golang.org/x/tools/cmd/goimports@latest
+  args:
+    executable: /bin/bash
+- name: Install gocyclo
+  ansible.builtin.shell: source /etc/profile.d/golang.sh && go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+  args:
+    executable: /bin/bash
+- name: Get latest release of golanglint-ci
+  community.general.github_release:
+    user: golangci
+    repo: golangci-lint
+    action: latest_release
+  register: golangci_version
+- name: Download and install golanglint-ci
+  ansible.builtin.unarchive:
+    src: "https://github.com/golangci/golangci-lint/releases/download/{{ golangci_version.tag }}/golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64.tar.gz"
+    dest: /usr/local/bin
+    include: golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64/golangci-lint
+    remote_src: yes
+  become: true
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"

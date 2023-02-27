@@ -10,3 +10,4 @@ kitchen.yml
 .kitchen
 get-pip*
 *.gitconfig
+packer_compiled.lua
