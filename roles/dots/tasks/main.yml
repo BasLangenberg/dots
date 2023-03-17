@@ -53,9 +53,11 @@
 - name: Download and install golanglint-ci
   ansible.builtin.unarchive:
     src: "https://github.com/golangci/golangci-lint/releases/download/{{ golangci_version.tag }}/golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64.tar.gz"
-    dest: /usr/local/bin
+    dest: /tmp
     include: golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64/golangci-lint
     remote_src: yes
+- name: Copy golangci to /usr/local/bin
+  copy: src=/tmp/golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64/golangci-lint dest=/usr/local/bin mode=0755
   become: true
 - name: Install pip packages
   pip:
