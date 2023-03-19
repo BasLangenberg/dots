@@ -92,4 +92,11 @@ vim.cmd([[
             \   'cache_enabled': 0,
             \ }
   let g:loaded_perl_provider = 0
+
+  " Persistent undo
+  if !isdirectory("/tmp/.vim-undo-dir")
+    call mkdir("/tmp/.vim-undo-dir", "", 0700)
+  endif
+  set undodir=/tmp/.vim-undo-dir
+  set undofile
 ]])

@@ -209,3 +209,7 @@ bindkey -s '^f' "tmux-sessionizer\n"
 
 # Rust
 PATH=${HOME}/.cargo/bin:${PATH}
+
+# Fly.io
+export FLYCTL_INSTALL="/home/bas/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
