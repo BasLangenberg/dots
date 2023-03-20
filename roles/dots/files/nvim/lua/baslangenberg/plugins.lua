@@ -91,6 +91,9 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
+  -- Undo
+  use "mbbill/undotree"
+
   -- Test runner plugins
   use {
     "nvim-neotest/neotest",
