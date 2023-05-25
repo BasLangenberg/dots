@@ -26,7 +26,7 @@ compinit
 # End of lines added by compinstall
 
 # Variables
-EDITOR=nvim
+export EDITOR=nvim
 
 # Make sure Terragrunt does not download to the local directory but to temp
 export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt
@@ -213,3 +213,7 @@ PATH=${HOME}/.cargo/bin:${PATH}
 # Fly.io
 export FLYCTL_INSTALL="/home/bas/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Chef
+export CHEF_INSTALL="/opt/chefdk"
+export PATH="$CHEF_INSTALL/bin:$PATH"
