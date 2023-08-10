@@ -1,6 +1,7 @@
+-- TODO: Move this to after.lua (Because there Mason is setup and all stuff below is ignored because of that)
 -- Generic configuration
-lspconfig = require "lspconfig"
-util = require "lspconfig/util"
+local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 -- LSP
 -- Source: https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
@@ -13,6 +14,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  print("LSP started.");
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -37,7 +39,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Go
-lspconfig.gopls.setup {
+require("lspconfig").gopls.setup {
   on_attach = on_attach,
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
@@ -63,7 +65,7 @@ require'lspconfig'.solargraph.setup{
 }
 
 -- Rust
-lspconfig.rust_analyzer.setup({
+require("lspconfig").rust_analyzer.setup({
     cmd = { "rustup", "run", "stable", "rust-analyzer" },
     on_attach=on_attach,
     settings = {
