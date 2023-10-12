@@ -66,3 +66,4 @@ npm_packages:
   - yaml-language-server
   - pyright
   - typescript
+  - vscode-langservers-extracted
