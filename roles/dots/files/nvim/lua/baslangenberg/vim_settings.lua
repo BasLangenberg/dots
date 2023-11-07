@@ -99,4 +99,9 @@ vim.cmd([[
   endif
   set undodir=/tmp/.vim-undo-dir
   set undofile
+
+  " Make file completion not behave like the most unintuitive thing ever
+  set wildmode=longest,list,full
+  set wildmenu
+
 ]])
