@@ -51,6 +51,7 @@ additional_packages:
   - test-kitchen
   - packer
   - vagrant
+  - yarn
 
 pip_packages:
   - molecule
