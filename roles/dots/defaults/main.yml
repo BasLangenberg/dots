@@ -43,8 +43,6 @@ additional_packages:
   - doxygen
   - terraform-ls
   - ripgrep
-  - ruby
-  - ruby-dev
   - fd-find
   - sshpass
   - chef

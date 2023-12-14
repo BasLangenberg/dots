@@ -26,6 +26,13 @@
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
     state: present
   become: true
+- name: Remove ruby2.7 if present
+  apt:
+    pkg:
+      - ruby2.7
+      - ruby2.7-dev
+    state: absent
+  become: true
 - name: Install additional packages
   apt:
     pkg: "{{ additional_packages }}"

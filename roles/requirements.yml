@@ -4,3 +4,4 @@ roles:
   - name: gantsign.golang
   - name: geerlingguy.nodejs
   - name: geerlingguy.docker
+  - name: geerlingguy.ruby
