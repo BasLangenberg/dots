@@ -1,7 +1,7 @@
 ---
 # Stolen from: https://github.com/ThePrimeagen/ansible/blob/master/tasks/nvim-setup.ym
-# - name: Remove neovim
-#   shell: rm -rf ~/neovim
+- name: Remove neovim
+  shell: rm -rf ~/neovim
 - name: Get Packer
   ansible.builtin.git:
     repo: 'https://github.com/wbthomason/packer.nvim'
@@ -13,6 +13,9 @@
     version: stable
     force: true
   register: neovim_git
+- name: Run distclean in neovim source dir
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make distclean"
+  when: neovim_git.changed
 - name: Build neovim
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
   when: neovim_git.changed
