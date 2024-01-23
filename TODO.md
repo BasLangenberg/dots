@@ -1,11 +1,20 @@
 # TODO / Ideas
 
+- [ ] Look and feels
+  - [ ] Add cappucin in terminal
+  - [ ] Add cappucin in zsh (if needed)
+  - [ ] Add cappucin in neovim
+  - [ ] Add cappucin in tmux
+
+- [ ] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
 - [x] Neovim
   - [ ] Refactor config
-    - [ ] Lazy instead of Packer?
+    - [ ] Lazy instead of Packer
+      - [ ] Cleanup old plugins which we do not use anymore, when we're at it anyway
     - [ ] Luafy your old vimrc
     - [ ] Review keybindings
-    - [ ] MISC
+    - [ ] add neo-tree
+    - [ ] MISC (When this is ticked, refactor is done for now)
   - [ ] Languages
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
@@ -20,13 +29,12 @@
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
-    - [ ] Run PackerSync (If we do not move to lazy)
-      - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
 
 - [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
 
-- [ ] Look into potential tmux awesomeness
-  - [x] Alternate session (Jump between sessions quickly)
+- [ ] Tmux improvements
+  - [ ] Typecraft on YouTube?
 
 - [ ] zsh
   - [ ] Fix autocorrect crap
@@ -65,16 +73,17 @@
 
 - [x] Fix copy/paste! (Host integration / win32yank)
 
+- [x] Tmux improvements
+  - [x] Alternate session (Jump between sessions quickly)
 
 - [x] Neovim
   - [x] Only build Neovim when new stable commit exists
     - [x] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
 
-  - [ ] Luafy your old vimrc
   - [x] vim-cmp
   - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-  - [ ] Languages
+  - [x] Languages
     - [x] LSP LSP LSP
     - [x] Go
       - [x] Fix install
@@ -82,7 +91,6 @@
     - [x] Rust (???), RUST!
       - [x] [https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/](some instructions to walk through)
     - [x] Terraform / Terragrunt / HCL
-      - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [x] YAML / K8S / Ansible
       - [x] https://github.com/redhat-developer/yaml-language-server
       - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
@@ -90,12 +98,6 @@
       - [x] Solargraph
     - [x] Python
     - [x] Node
-    - [ ] Markdown Writing (Maybe, not really required...)
-      - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
-      - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
-      - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
-    - [ ] Run PackerSync
-      - [ ] nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   - [x] Treesitter
     - [x] Initially including support for all lsp languages?
 
