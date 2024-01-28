@@ -1,19 +1,4 @@
 ---
 - hosts: all
-  vars:
-    docker_service_manage: false
-    docker_users:
-      - "bas"
-    docker_install_compose: true
-    nodejs_npm_global_packages:
-      - name: neovim
-    ruby_version: 3.0.0
-    ruby_install_from_source: true
-
   roles:
-    - gantsign.golang
-    - {role: geerlingguy.nodejs, become: yes}
-    - {role: geerlingguy.ruby, become: yes}
     - dots
-    - giner.tfenv
-    - {role: geerlingguy.docker, become: yes}

@@ -1,11 +1,21 @@
 ---
 # tasks file for dots
+- name: Remove ruby2.7 if present
+  apt:
+    pkg:
+      - ruby2.7
+      - ruby2.7-dev
+    state: absent
+  become: true
 - name: Install essential packages
   apt:
     pkg: "{{ essential_packages }}"
     update_cache: yes
     cache_valid_time: 3600
   become: true
+- name: Install pip packages
+  pip:
+    name: "{{ pip_packages }}"
 - name: Add Kubernetes repo key
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -26,19 +36,38 @@
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
     state: present
   become: true
-- name: Remove ruby2.7 if present
-  apt:
-    pkg:
-      - ruby2.7
-      - ruby2.7-dev
-    state: absent
-  become: true
 - name: Install additional packages
   apt:
     pkg: "{{ additional_packages }}"
     update_cache: yes
     cache_valid_time: 3600
   become: true
+- name: Setup GoLang
+  ansible.builtin.include_role:
+    name: gantsign.golang
+  vars:
+    ansible_become: yes
+- name: Setup nodejs
+  ansible.builtin.include_role:
+    name: geerlingguy.nodejs
+  vars:
+    ansible_become: yes
+    nodejs_npm_global_packages:
+      - name: neovim
+    nodejs_install_npm_user: "{{ user }}"
+- name: Setup ruby
+  ansible.builtin.include_role:
+    name: geerlingguy.ruby
+  vars:
+    ansible_become: yes
+    ruby_download_url: http://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.0.tar.gz
+    ruby_version: 3.3.0
+    ruby_install_from_source: true
+- name: Setup tfenv
+  ansible.builtin.include_role:
+    name: giner.tfenv
+  vars:
+    ansible_become: yes
 - name: Install gopls
   ansible.builtin.shell: source /etc/profile.d/golang.sh && go install golang.org/x/tools/gopls@latest
   args:
@@ -66,9 +95,6 @@
 - name: Copy golangci to /usr/local/bin
   copy: src=/tmp/golangci-lint-{{ golangci_version.tag[1:] }}-linux-amd64/golangci-lint dest=/usr/local/bin mode=0755
   become: true
-- name: Install pip packages
-  pip:
-    name: "{{ pip_packages }}"
 - name: Install npm packages
   community.general.npm:
     name: "{{ item }}"
@@ -97,39 +123,39 @@
   become: true
 - name: check if dotfiles are in place
   stat:
-    path: "/home/{{ user }}/dots"
+    path: "{{ ansible_env.HOME }}/dots"
   register: dots
 - name: clone dotfiles
   git:
     repo: https://github.com/BasLangenberg/dots.git
-    dest: "/home/{{ user }}/dots"
+    dest: "{{ ansible_env.HOME }}/dots"
   when: dots.stat.isdir is not defined
   become: true
 - name: update permissions
   file:
-    path: "/home/{{ user }}/dots"
+    path: "{{ ansible_env.HOME }}/dots"
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: true
   when: dots.stat.isdir is not defined
 - name: setup ranger folder
   file:
-    path: "/home/{{ user }}/.config/ranger"
+    path: "{{ ansible_env.HOME }}/.config/ranger"
     owner: "{{ user }}"
     group: "{{ user }}"
     state: directory
     mode: 0755
 - name: link ranger config
   file:
-    src: "/home/{{ user }}/dots/roles/dots/files/ranger_rc.conf"
-    path: "/home/{{ user }}/.config/ranger/rc.conf"
+    src: "{{ ansible_env.HOME }}/dots/roles/dots/files/ranger_rc.conf"
+    path: "{{ ansible_env.HOME }}/.config/ranger/rc.conf"
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
 - name: link .config directories
   file:
-    src: "/home/{{ user }}/dots/roles/dots/files/{{ item }}"
-    path: "/home/{{ user }}/.config/{{ item }}"
+    src: "{{ ansible_env.HOME }}/dots/roles/dots/files/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -140,17 +166,17 @@
 - name: clone powerlevel10k
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "/home/{{ user }}/powerlevel10k"
+    dest: "{{ ansible_env.HOME }}/powerlevel10k"
 - name: p10k - fix permissions
   file:
-    path: "/home/{{ user }}/powerlevel10k"
+    path: "{{ ansible_env.HOME }}/powerlevel10k"
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: true
 - name: link dotfiles
   file:
-    src: "/home/{{ user }}/dots/roles/dots/files/{{ item }}"
-    path: "/home/{{ user }}/{{ item }}"
+    src: "{{ ansible_env.HOME }}/dots/roles/dots/files/{{ item }}"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -162,35 +188,35 @@
     - .p10k.zsh
 - name: Create bin directory
   ansible.builtin.file:
-    path: "/home/{{ user }}/bin"
+    path: "{{ ansible_env.HOME }}/bin"
     state: directory
     mode: '0755'
 - name: link scripts
   file:
-    src: "/home/{{ user }}/dots/roles/dots/files/scripts"
-    path: "/home/{{ user }}/bin/scripts"
+    src: "{{ ansible_env.HOME }}/dots/roles/dots/files/scripts"
+    path: "{{ ansible_env.HOME }}/bin/scripts"
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
 - name: check if fzf is in place
   stat:
-    path: "/home/{{ user }}/.fzf"
+    path: "{{ ansible_env.HOME }}/.fzf"
   register: fzf
 - name: Clone fzf
   git:
     repo: https://github.com/junegunn/fzf.git
-    dest: "/home/{{ user }}/.fzf"
+    dest: "{{ ansible_env.HOME }}/.fzf"
   when: fzf.stat.isdir is not defined
 - name: fzf - fix permissions
   file:
-    path: "/home/{{ user }}/.fzf"
+    path: "{{ ansible_env.HOME }}/.fzf"
     owner: "{{ user }}"
     group: "{{ user }}"
     recurse: true
 - name: Install fzf
   command:
-    cmd: "/home/{{ user }}/.fzf/install --all"
-    creates: "/home/{{ user }}/.fzf/bin/fzf"
+    cmd: "{{ ansible_env.HOME }}/.fzf/install --all"
+    creates: "{{ ansible_env.HOME }}/.fzf/bin/fzf"
 - name: Get latest release of doctl
   community.general.github_release:
     user: digitalocean
@@ -310,3 +336,12 @@
   shell: ~/.cargo/bin/rustup component add rust-analyzer
   tags:
     - rust
+- name: Setup Docker
+  ansible.builtin.include_role:
+    name: geerlingguy.docker
+  vars:
+    ansible_become: true
+    docker_service_manage: false
+    docker_users:
+      - "{{ user }}"
+    docker_install_compose: true

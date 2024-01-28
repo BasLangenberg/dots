@@ -1,7 +1,7 @@
 ---
 roles:
-  - name: giner.tfenv
   - name: gantsign.golang
   - name: geerlingguy.nodejs
-  - name: geerlingguy.docker
+  - name: giner.tfenv
   - name: geerlingguy.ruby
+  - name: geerlingguy.docker
