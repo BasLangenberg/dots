@@ -1,6 +1,5 @@
 # TODO / Ideas
 
-- [ ] Fix Molecule Tests
 
 - [ ] Look and feels
   - [ ] Add cappucin in terminal
@@ -62,6 +61,8 @@
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 
 # DONE
+
+- [x] Fix Molecule Tests
 - [x] Fix root / become issues
 
 - [x] Aliasses
