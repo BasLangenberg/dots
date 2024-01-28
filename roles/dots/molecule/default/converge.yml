@@ -2,6 +2,14 @@
 - name: Converge
   hosts: all
   tasks:
+    - name: "Print ansible environment setup"
+      ansible.builtin.debug:
+        msg: "{{ ansible_env }}"
+    - name: "Print home directory used in run"
+      ansible.builtin.debug:
+        msg: User has home {{ ansible_env.HOME }}
     - name: "Include dots"
       include_role:
         name: "dots"
+      vars:
+        user: root

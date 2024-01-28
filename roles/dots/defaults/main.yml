@@ -1,6 +1,7 @@
 ---
 # defaults file for dots
 user: "{{ lookup('env', 'USER') }}"
+
 essential_packages:
   - zsh
   - vim
@@ -45,7 +46,6 @@ additional_packages:
   - ripgrep
   - fd-find
   - sshpass
-  - chef
   - test-kitchen
   - packer
   - vagrant

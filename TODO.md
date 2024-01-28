@@ -1,5 +1,7 @@
 # TODO / Ideas
 
+- [ ] Fix Molecule Tests
+
 - [ ] Look and feels
   - [ ] Add cappucin in terminal
   - [ ] Add cappucin in zsh (if needed)
@@ -15,6 +17,7 @@
     - [ ] Review keybindings
     - [ ] add neo-tree
     - [ ] MISC (When this is ticked, refactor is done for now)
+  - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
@@ -30,8 +33,6 @@
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
-
-- [ ] Kitchen configuration for Digital Ocean (Quick test again new host to ensure this builds correctly)
 
 - [ ] Tmux improvements
   - [ ] Typecraft on YouTube?
@@ -49,11 +50,16 @@
   - [ ] ssh-agent on startup
 
 - [ ] Tmux sessionizer: In temporary window
-- [ ] Fix awkward copy-paste in Vim
 - [ ] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
 
 - [ ] Setup Windows Terminal from bootstrap script if possible
 - [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
+
+- [ ] Fix rebuild of Neovim on every Ansible invoke
+
+# Unimportant TODOs that sounds fun and I need to write down but will probably not happen
+
+- [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 
 # DONE
 - [x] Fix root / become issues
