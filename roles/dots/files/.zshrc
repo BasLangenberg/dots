@@ -166,16 +166,6 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Go
-# GOPATH=/home/bas/dev/go
-# GOBIN=/home/bas/dev/go/bin
-# PATH=${PATH}:${GOBIN}:/usr/local/go/bin
-
-export PATH
-export GOPATH
-export GOBIN
-
-alias go="nocorrect go"
 # K8S
 source <(kubectl completion zsh)
 alias k=kubectl
