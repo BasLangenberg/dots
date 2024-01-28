@@ -6,7 +6,7 @@ PATH=${HOME}/.local/bin:${PATH}
 # Updates, Upgrades and packages
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y git tmux zsh vim python3
+sudo apt install -y git tmux zsh vim python3 wget
 
 # Pip fixes & Ansible setup
 # TODO: Move to Ubuntu and APT and not this dirty stuff
