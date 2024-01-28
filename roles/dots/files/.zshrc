@@ -138,9 +138,9 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 
 # Go
-GOPATH=/mnt/c/data/go
-GOBIN=/mnt/c/data/go/bin
-GOFLAGS=-mod=vendor
+GOPATH=${HOME}/go
+GOBIN=${HOME}/go/bin
+#GOFLAGS=-mod=vendor
 PATH=/home/bas/bin:/usr/local/go/bin:${PATH}:${GOBIN}
 
 export PATH
