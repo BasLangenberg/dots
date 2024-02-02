@@ -35,7 +35,7 @@
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
 
 - [ ] Tmux improvements
-  - [ ] tmux-sessionizer with prefix in pane running something
+  - [x] tmux-sessionizer with prefix in pane running something
   - [ ] Typecraft on YouTube?
 
 - [ ] zsh
