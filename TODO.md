@@ -16,6 +16,7 @@
     - [ ] Review keybindings
     - [ ] add neo-tree
     - [ ] MISC (When this is ticked, refactor is done for now)
+  - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
     - [x] Terraform / Terragrunt / HCL
@@ -34,6 +35,7 @@
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
 
 - [ ] Tmux improvements
+  - [ ] tmux-sessionizer with prefix in pane running something
   - [ ] Typecraft on YouTube?
 
 - [ ] zsh

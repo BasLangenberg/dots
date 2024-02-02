@@ -303,6 +303,28 @@
     group: root
     mode: u=rwx,g=rx,o=rx
   become: true
+- name: Get latest release of lazygit
+  community.general.github_release:
+    user: jesseduffield
+    repo: lazygit
+    action: latest_release
+  register: lazygit_ver
+  tags: lazygit
+- name: Download and unzip lazygit
+  ansible.builtin.unarchive:
+    src: https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_{{ lazygit_ver.tag | replace('v','') }}_Linux_x86_64.tar.gz
+    dest: /tmp
+    remote_src: yes
+  tags: lazygit
+- name: Install lazygit
+  ansible.builtin.copy:
+    src: /tmp/lazygit
+    dest: /usr/local/bin
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+  become: true
+  tags: lazygit
 - name: Download and install win32yank
   ansible.builtin.unarchive:
     src: https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
