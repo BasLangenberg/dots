@@ -101,6 +101,7 @@
     global: true
   become: true
   loop: "{{ npm_packages }}"
+  tags: npm_packages
 - name: Install neovim ruby gem
   command: "gem install neovim"
   become: true
