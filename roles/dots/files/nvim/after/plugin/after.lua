@@ -2,12 +2,24 @@
 vim.g.tokyonight_transparant_sidebar = true
 vim.g.tokyonight_transparant = true
 
--- Material theme settings
+-- Material theme settings, also not currently used
 vim.g.material_style = "deep ocean"
 
--- Dark background
-vim.opt.background = dark
-vim.cmd("colorscheme material")
+-- Catppuccin
+require("catppuccin").setup({
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+  }
+})
+vim.cmd.colorscheme "catppuccin-frappe"
 
 -- Telescope setup
 local builtin = require('telescope.builtin')
@@ -48,10 +60,7 @@ telescope.setup({
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
-    theme = 'onedark',
-    component_separators = '|',
-    section_separators = '',
+    theme = "catppuccin",
   },
 }
 
@@ -100,7 +109,7 @@ local servers = {
     },
     diagnostics = {
       -- Get the language server to recognize the `vim` global
-      globals = {'vim'},
+      globals = { 'vim' },
     },
     workspace = {
       -- Make the server aware of Neovim runtime files
@@ -128,7 +137,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
