@@ -10,6 +10,10 @@ return require('packer').startup(function(use)
   -- Themes
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin"
+  }
 
   -- LSP
   use { -- LSP Configuration & Plugins
@@ -48,10 +52,10 @@ return require('packer').startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Treesitter
   use {
@@ -63,7 +67,7 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
 

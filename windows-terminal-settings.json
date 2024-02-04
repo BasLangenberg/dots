@@ -2,10 +2,21 @@
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [],
-    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-    "profiles": {
-        "defaults": {},
-        "list": [
+    "defaultProfile": "{ed717f2b-7017-4ba8-9f3b-779575cb2db3}",
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "colorScheme": "Catppuccin Frappe"
+        },
+        "list":
+        [
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
@@ -17,25 +28,27 @@
                 "name": "cmd"
             },
             {
-                "colorScheme": "MaterialDarker",
-                "font": {
-                    "face": "MesloLGS NF"
-                },
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "WSL",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "/home/bas"
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "colorScheme": "Catppuccin Frappe",
+                "commandline": "wsl.exe -d Ubuntu-20.04",
+                "font":
+                {
+                    "face": "MesloLGS NF"
+                },
+                "guid": "{ed717f2b-7017-4ba8-9f3b-779575cb2db3}",
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Ubuntu",
+                "startingDirectory": "/home/bas"
             }
         ]
     },
-    "schemes": [
+    "schemes":
+    [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
@@ -81,6 +94,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#CCCCCC",
             "yellow": "#C19C00"
+        },
+        {
+            "background": "#303446",
+            "black": "#51576D",
+            "blue": "#8CAAEE",
+            "brightBlack": "#626880",
+            "brightBlue": "#8CAAEE",
+            "brightCyan": "#81C8BE",
+            "brightGreen": "#A6D189",
+            "brightPurple": "#F4B8E4",
+            "brightRed": "#E78284",
+            "brightWhite": "#A5ADCE",
+            "brightYellow": "#E5C890",
+            "cursorColor": "#F2D5CF",
+            "cyan": "#81C8BE",
+            "foreground": "#C6D0F5",
+            "green": "#A6D189",
+            "name": "Catppuccin Frappe",
+            "purple": "#F4B8E4",
+            "red": "#E78284",
+            "selectionBackground": "#626880",
+            "white": "#B5BFE2",
+            "yellow": "#E5C890"
         },
         {
             "background": "#1E1F29",
@@ -288,6 +324,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
+        }
+    ],
+    "theme": "Catppuccin Frappe",
+    "themes":
+    [
+        {
+            "name": "Catppuccin Frappe",
+            "tab":
+            {
+                "background": "#303446FF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow":
+            {
+                "background": "#292C3CFF",
+                "unfocusedBackground": "#232634FF"
+            },
+            "window":
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
         }
     ]
 }

@@ -1,12 +1,4 @@
 # TODO / Ideas
-
-
-- [ ] Look and feels
-  - [ ] Add cappucin in terminal
-  - [ ] Add cappucin in zsh (if needed)
-  - [ ] Add cappucin in neovim
-  - [ ] Add cappucin in tmux
-
 - [ ] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
 - [x] Neovim
   - [ ] Refactor config
@@ -36,11 +28,11 @@
 
 - [ ] Tmux improvements
   - [x] tmux-sessionizer with prefix in pane running something
+  - [ ] more plugins?
   - [ ] Typecraft on YouTube?
 
 - [ ] zsh
   - [ ] Fix autocorrect crap
-  - [ ] Use terminal theme to match vim
 
 - [ ] Cleanup
   - [ ] zshrc
@@ -50,7 +42,6 @@
   - [ ] Include key?!?!?!
   - [ ] ssh-agent on startup
 
-- [ ] Tmux sessionizer: In temporary window
 - [ ] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
 
 - [ ] Setup Windows Terminal from bootstrap script if possible
@@ -63,6 +54,11 @@
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 
 # DONE
+- [x] Tmux sessionizer: In temporary window
+- [x] Look and feels
+  - [x] Add cappucin in terminal
+  - [x] Add cappucin in neovim
+  - [x] Add cappucin in tmux
 
 - [x] Fix Molecule Tests
 - [x] Fix root / become issues

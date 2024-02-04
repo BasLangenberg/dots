@@ -42,6 +42,17 @@
     update_cache: yes
     cache_valid_time: 3600
   become: true
+- name: check if tmux plugin manager is present
+  stat:
+    path: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+  register: tpm
+  tags: tpm
+- name: clone tmux plugin manager
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+  when: tpm.stat.isdir is not defined
+  tags: tpm
 - name: Setup GoLang
   ansible.builtin.include_role:
     name: gantsign.golang
