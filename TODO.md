@@ -1,4 +1,4 @@
-# TODO / Ideas
+# TODO / Ideas for PDM
 - [ ] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
 - [x] Neovim
   - [ ] Refactor config
@@ -13,10 +13,13 @@
   - [ ] Languages
     - [x] Terraform / Terragrunt / HCL
       - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
-    - [x] YAML / K8S / Ansible
+    - [x] YAML / JSON / K8S / Ansible
       - [x] https://github.com/redhat-developer/yaml-language-server
       - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
-      - [ ] Fix Helm / Non recognized files, full of red right now
+      - [ ] Schemastore
+        - [ ] https://www.schemastore.org/json/
+        - [ ] https://github.com/b0o/SchemaStore.nvim
+        - [ ] Fix Helm / Non recognized files, full of red right now
         - [ ] We should not do any linting on file structures we do not recognize?
         - [ ] How to setup this in the first place?
         - [ ] How to notice that linting is missing? Something in status line would be helpful
@@ -48,6 +51,8 @@
 - [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
 
 - [ ] Fix rebuild of Neovim on every Ansible invoke
+
+- [ ] Look into acquiring YubiKeys
 
 # Unimportant TODOs that sounds fun and I need to write down but will probably not happen
 
