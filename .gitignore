@@ -11,3 +11,4 @@ kitchen.yml
 get-pip*
 *.gitconfig
 packer_compiled.lua
+roles/dots/files/.gitconfig-work
