@@ -7,7 +7,7 @@
     - [x] Luafy your old vimrc - no
     - [x] Review keybindings
     - [x] add neo-tree
-    - [ ] MISC (When this is ticked, refactor is done for now)
+    - [x] MISC (When this is ticked, refactor is done for now)
   - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
@@ -32,7 +32,7 @@
 
 - [ ] Tmux improvements
   - [x] tmux-sessionizer with prefix in pane running something
-  - [ ] fix window rename
+  - [x] fix window rename
   - [ ] more plugins?
     - [ ] lol tmux is dope out of the box already
   - [ ] Typecraft on YouTube?
@@ -55,6 +55,8 @@
 - [ ] Fix rebuild of Neovim on every Ansible invoke
 
 - [ ] Look into acquiring YubiKeys
+
+- [ ] Look into better bootstrapping
 
 # Unimportant TODOs that sounds fun and I need to write down but will probably not happen SHAVING YAKS ALL DAY EVERYDAY BABY
 

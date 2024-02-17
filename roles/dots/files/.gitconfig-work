@@ -1,0 +1,5 @@
+[user]
+    email = bas.langenberg@cobase.com
+    name = Bas Langenberg
+[http]
+    extraheader = Authorization: Basic AINTGONNATELLYA

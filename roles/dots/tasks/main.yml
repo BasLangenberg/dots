@@ -201,6 +201,7 @@
     - .tmux.conf
     - .vim
     - .gitconfig
+    - .gitconfig-work
     - .p10k.zsh
 - name: Create bin directory
   ansible.builtin.file:
