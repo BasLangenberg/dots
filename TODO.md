@@ -1,18 +1,9 @@
 # TODO / Ideas for PDM
-- [ ] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
+
 - [x] Neovim
-  - [x] Refactor config
-    - [x] Lazy instead of Packer
-      - [x] Cleanup old plugins which we do not use anymore, when we're at it anyway
-    - [x] Luafy your old vimrc - no
-    - [x] Review keybindings
-    - [x] add neo-tree
-    - [x] MISC (When this is ticked, refactor is done for now)
   - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
-    - [x] Terraform / Terragrunt / HCL
-      - [ ] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [x] YAML / JSON / K8S / Ansible
       - [x] https://github.com/redhat-developer/yaml-language-server
       - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
@@ -44,25 +35,21 @@
   - [ ] zshrc
   - [ ] Check other files (Cleanup quickly or add to list)
 
-- [ ] SSH
-  - [ ] Include key?!?!?!
-  - [ ] ssh-agent on startup
-
-
-- [ ] Setup Windows Terminal from bootstrap script if possible
-- [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
-
-- [ ] Fix rebuild of Neovim on every Ansible invoke
-
-- [ ] Look into acquiring YubiKeys
-
 - [ ] Look into better bootstrapping
+  - [ ] Setup Windows Terminal from bootstrap script if possible
+  - [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
+  - [ ] Fix rebuild of Neovim on every Ansible invoke
+
+- [ ] SSH
+  - [ ] Look into acquiring YubiKeys
+  - [ ] ssh-agent on startup?
 
 # Unimportant TODOs that sounds fun and I need to write down but will probably not happen SHAVING YAKS ALL DAY EVERYDAY BABY
 
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 
 # DONE
+
 - [x] Tmux sessionizer: In temporary window
 - [x] Look and feels
   - [x] Add cappucin in terminal
@@ -91,6 +78,13 @@
   - [x] Alternate session (Jump between sessions quickly)
 
 - [x] Neovim
+  - [x] Refactor config
+    - [x] Lazy instead of Packer
+      - [x] Cleanup old plugins which we do not use anymore, when we're at it anyway
+    - [x] Luafy your old vimrc - no
+    - [x] Review keybindings
+    - [x] add neo-tree
+    - [x] MISC (When this is ticked, refactor is done for now)
   - [x] Only build Neovim when new stable commit exists
     - [x] [Hint](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
   - [x] Telescope
@@ -98,6 +92,8 @@
   - [x] vim-cmp
   - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
   - [x] Languages
+    - [x] Terraform / Terragrunt / HCL
+      - [x] terraform-ls vs terraform-lsp (Autocomplete is non existend now)
     - [x] LSP LSP LSP
     - [x] Go
       - [x] Fix install
@@ -126,3 +122,5 @@
 - [x] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
 
 - [x] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
+
+- [x] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
