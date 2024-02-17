@@ -1,12 +1,12 @@
 # TODO / Ideas for PDM
 - [ ] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
 - [x] Neovim
-  - [ ] Refactor config
-    - [ ] Lazy instead of Packer
-      - [ ] Cleanup old plugins which we do not use anymore, when we're at it anyway
-    - [ ] Luafy your old vimrc
-    - [ ] Review keybindings
-    - [ ] add neo-tree
+  - [x] Refactor config
+    - [x] Lazy instead of Packer
+      - [x] Cleanup old plugins which we do not use anymore, when we're at it anyway
+    - [x] Luafy your old vimrc - no
+    - [x] Review keybindings
+    - [x] add neo-tree
     - [ ] MISC (When this is ticked, refactor is done for now)
   - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
@@ -27,11 +27,14 @@
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
+      - [ ] Folke/Twilight & Pocco81/true-zen.nvim shizzle?
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
 
 - [ ] Tmux improvements
   - [x] tmux-sessionizer with prefix in pane running something
+  - [ ] fix window rename
   - [ ] more plugins?
+    - [ ] lol tmux is dope out of the box already
   - [ ] Typecraft on YouTube?
 
 - [ ] zsh
@@ -45,7 +48,6 @@
   - [ ] Include key?!?!?!
   - [ ] ssh-agent on startup
 
-- [ ] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
 
 - [ ] Setup Windows Terminal from bootstrap script if possible
 - [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
@@ -54,7 +56,7 @@
 
 - [ ] Look into acquiring YubiKeys
 
-# Unimportant TODOs that sounds fun and I need to write down but will probably not happen
+# Unimportant TODOs that sounds fun and I need to write down but will probably not happen SHAVING YAKS ALL DAY EVERYDAY BABY
 
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 
@@ -118,3 +120,7 @@
   - [x] kubens
   - [x] chefdk
   - [x] ripgrep
+
+- [x] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
+
+- [x] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)

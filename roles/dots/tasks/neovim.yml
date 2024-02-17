@@ -2,10 +2,6 @@
 # Stolen from: https://github.com/ThePrimeagen/ansible/blob/master/tasks/nvim-setup.ym
 - name: Remove neovim
   shell: rm -rf ~/neovim
-- name: Get Packer
-  ansible.builtin.git:
-    repo: 'https://github.com/wbthomason/packer.nvim'
-    dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
 - name: Clone Neovim
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
@@ -30,5 +26,5 @@
 #  become: true
 #  shell: luarocks install luacheck
 - name: Install plugins
-  shell: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+  shell: 'nvim --headless "+Lazy! sync" +qa'
   when: neovim_git.changed
