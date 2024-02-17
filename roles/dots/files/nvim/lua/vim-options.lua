@@ -1,5 +1,4 @@
--- This is a comment in lua
-
+-- Copy of old vimrc, maybe put into proper lua someday but meh
 vim.cmd([[
   " Generic settings
   set enc=utf-8
@@ -104,4 +103,6 @@ vim.cmd([[
   set wildmode=longest,list,full
   set wildmenu
 
+  " Integration with sessionizer
+  nnoremap <C-f> <cmd>silent !tmux neww tmux-sessionizer<CR>
 ]])
