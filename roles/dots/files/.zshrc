@@ -49,6 +49,8 @@ alias tgpa='terragrunt --terragrunt-download-dir /tmp/terragrunt run-all plan'
 alias tga='terragrunt --terragrunt-download-dir /tmp/terragrunt apply'
 alias tgaa='terragrunt --auto-approve --terragrunt-download-dir /tmp/terragrunt run-all apply'
 
+alias cat='batcat'
+
 alias projects='cd ${HOME}/projects'
 
 # Make completion:

@@ -49,6 +49,7 @@ additional_packages:
   - test-kitchen
   - packer
   - vagrant
+  - bat
 
 pip_packages:
   - molecule
