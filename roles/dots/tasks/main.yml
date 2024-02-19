@@ -295,12 +295,34 @@
     repo: k9s
     action: latest_release
   register: k9s_ver
+  tags: k9s
 - name: Download and install K9s
   ansible.builtin.unarchive:
     src: https://github.com/derailed/k9s/releases/download/{{ k9s_ver.tag }}/k9s_Linux_amd64.tar.gz
     dest: /usr/local/bin
     remote_src: yes
   become: true
+  tags: k9s
+- name: Ensure k9s config directory exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/k9s/skins"
+    state: directory
+  tags: k9s
+- name: Download and unzip k9s catppucin theme
+  ansible.builtin.unarchive:
+    src: https://github.com/catppuccin/k9s/archive/main.tar.gz
+    dest: "{{ ansible_env.HOME }}/.config/k9s/skins"
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=2"
+      - "k9s-main/dist"
+  tags: k9s
+- name: Link k9s config
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/dots/roles/dots/files/k9s-config.yaml"
+    dest: "{{ ansible_env.HOME }}/.config/k9s/config.yaml"
+    state: "link"
+  tags: k9s
 - name: Get latest release of helm
   community.general.github_release:
     user: helm
