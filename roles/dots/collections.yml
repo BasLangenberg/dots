@@ -2,6 +2,7 @@
 roles:
   - name: gantsign.golang
   - name: geerlingguy.nodejs
+    version: "6.1.1"
   - name: giner.tfenv
   - name: geerlingguy.ruby
   - name: geerlingguy.docker

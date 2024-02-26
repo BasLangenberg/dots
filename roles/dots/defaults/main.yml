@@ -67,4 +67,5 @@ npm_packages:
   - typescript
   - vscode-langservers-extracted
   - ts-node
-  - yarn
+  # Breaks stuff
+  # - yarn
