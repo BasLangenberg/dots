@@ -4,16 +4,6 @@
   - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
-    - [x] YAML / JSON / K8S / Ansible
-      - [x] https://github.com/redhat-developer/yaml-language-server
-      - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
-      - [ ] Schemastore
-        - [ ] https://www.schemastore.org/json/
-        - [ ] https://github.com/b0o/SchemaStore.nvim
-        - [ ] Fix Helm / Non recognized files, full of red right now
-        - [ ] We should not do any linting on file structures we do not recognize?
-        - [ ] How to setup this in the first place?
-        - [ ] How to notice that linting is missing? Something in status line would be helpful
     - [ ] Markdown Writing (Maybe, not really required...)
       - [ ] [vim-markdown](https://github.com/preservim/vim-markdown)
       - [ ] [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
@@ -30,10 +20,6 @@
 
 - [ ] zsh
   - [ ] Fix autocorrect crap
-
-- [ ] Cleanup
-  - [ ] zshrc
-  - [ ] Check other files (Cleanup quickly or add to list)
 
 - [ ] Look into better bootstrapping
   - [ ] Setup Windows Terminal from bootstrap script if possible
@@ -110,6 +96,17 @@
     - [x] Node
   - [x] Treesitter
     - [x] Initially including support for all lsp languages?
+
+  - [x] YAML / JSON / K8S / Ansible
+    - [x] https://github.com/redhat-developer/yaml-language-server
+    - [x] https://stackoverflow.com/questions/66615677/set-yaml-schema-kubernetes-for-autocompletion-with-nvim-lspconfig
+    - [x] Schemastore
+      - [x] https://www.schemastore.org/json/
+      - [x] https://github.com/b0o/SchemaStore.nvim
+      - [x] Fix Helm / Non recognized files, full of red right now
+      - [x] We should not do any linting on file structures we do not recognize?
+      - [x] How to setup this in the first place?
+      - [x] How to notice that linting is missing? Something in status line would be helpful
 
 - [x] Add software
   - [x] terraform versions
