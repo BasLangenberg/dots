@@ -18,12 +18,13 @@
     name: "{{ pip_packages }}"
 - name: Add Kubernetes repo key
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key
     state: present
   become: true
+  tags: k8s
 - name: Add Kubernetes repository
   apt_repository:
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
     state: present
   become: true
 - name: Add Hashicorp repo key
@@ -31,6 +32,7 @@
     url: https://apt.releases.hashicorp.com/gpg
     state: present
   become: true
+  tags: k8s
 - name: Add Hashicorp repository
   apt_repository:
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
@@ -89,6 +91,10 @@
     executable: /bin/bash
 - name: Install gocyclo
   ansible.builtin.shell: source /etc/profile.d/golang.sh && go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+  args:
+    executable: /bin/bash
+- name: Install hclfmt
+  ansible.builtin.shell: source /etc/profile.d/golang.sh && go install github.com/fatih/hclfmt@master
   args:
     executable: /bin/bash
 - name: Get latest release of golanglint-ci

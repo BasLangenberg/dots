@@ -17,6 +17,20 @@ return {
     },
   },
   {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local null_ls = require("null-ls")
+
+      null_ls.setup({
+        sources = ({
+          null_ls.builtins.formatting.hclfmt
+        })
+
+      })
+    end
+  },
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     dependencies = { 'folke/neodev.nvim' },
@@ -52,7 +66,12 @@ return {
 
       -- Terraform
       lspconfig.terraformls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        init_options = {
+          terraform = {
+            path = vim.fn.expand('$HOME/bin/terraform')
+          }
+        }
       })
 
       -- Go
