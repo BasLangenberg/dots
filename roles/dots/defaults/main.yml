@@ -50,6 +50,7 @@ additional_packages:
   - packer
   - vagrant
   - bat
+  - clang
 
 pip_packages:
   - molecule

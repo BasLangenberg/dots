@@ -399,10 +399,26 @@
   shell: /tmp/sh.rustup.rs -y
   tags:
     - rust
+- name: update rust if possible
+  shell: ~/.cargo/bin/rustup update
+  tags:
+    - rust
+    - jnv
 - name: install rust-analyzer lsp
   shell: ~/.cargo/bin/rustup component add rust-analyzer
   tags:
     - rust
+- name: check if jnv is installed
+  shell: command -v jnv
+  register: jnv_exists
+  ignore_errors: true
+  tags:
+    - jnv
+- name: install jnv
+  shell: ~/.cargo/bin/cargo install jnv
+  when: jnv_exists is failed
+  tags:
+    - jnv
 - name: Setup Docker
   ansible.builtin.include_role:
     name: geerlingguy.docker
