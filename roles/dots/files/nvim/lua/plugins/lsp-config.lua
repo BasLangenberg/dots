@@ -89,6 +89,8 @@ return {
         },
       })
 
+      -- HTMX
+      lspconfig.htmx.setup{}
       -- TODO: Setup schemastore for Yaml / JSON
       -- json (pronounced Sjasohn)
       lspconfig.jsonls.setup({
