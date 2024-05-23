@@ -156,8 +156,6 @@ export DISTRIB_RELEASE=$(uname -r)
 # Kubernetes
 source <(kubectl completion zsh)
 
-export EDITOR=vim
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load some secrets

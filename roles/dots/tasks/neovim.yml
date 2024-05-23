@@ -28,3 +28,6 @@
 - name: Install plugins
   shell: 'nvim --headless "+Lazy! sync" +qa'
   when: neovim_git.changed
+- name: Update Treesitter
+  shell: 'nvim --headless "+TSUpdate" +qa'
+  when: neovim_git.changed
