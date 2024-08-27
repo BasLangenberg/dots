@@ -61,6 +61,7 @@
   vars:
     ansible_become: yes
 - name: Setup nodejs
+  when: ansible_facts["distribution"] != "Kali"
   ansible.builtin.include_role:
     name: geerlingguy.nodejs
   vars:
@@ -117,6 +118,7 @@
     remote_src: yes
   become: true
 - name: Install npm packages
+  when: ansible_facts["distribution"] != "Kali"
   community.general.npm:
     name: "{{ item }}"
     global: true
@@ -202,6 +204,7 @@
     state: link
     owner: "{{ user }}"
     group: "{{ user }}"
+    force: true
   with_items:
     - .zshrc
     - .tmux.conf
@@ -420,6 +423,7 @@
   tags:
     - jnv
 - name: Setup Docker
+  when: ansible_facts["distribution"] != "Kali"
   ansible.builtin.include_role:
     name: geerlingguy.docker
   vars:

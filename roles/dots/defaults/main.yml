@@ -21,6 +21,7 @@ essential_packages:
   - python3
   - python3-pip
   - python3-venv
+  - python3-setuptools
   - tig
 
 additional_packages:
@@ -46,13 +47,15 @@ additional_packages:
   - ripgrep
   - fd-find
   - sshpass
-  - test-kitchen
   - packer
   - vagrant
   - bat
   - clang
+  - texlive-latex-recommended
+  - texlive-latex-extra
 
 pip_packages:
+  - setuptools
   - molecule
   - molecule-docker
   - pre-commit
