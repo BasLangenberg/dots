@@ -5,27 +5,16 @@ PATH=${HOME}/.local/bin:${PATH}
 
 # Updates, Upgrades and packages
 sudo apt update
-sudo apt upgrade -y
-sudo apt install -y git tmux zsh vim python3 wget
+sudo apt install -y software-properties-common
 
-# Pip fixes & Ansible setup
-# TODO: Move to Ubuntu and APT and not this dirty stuff
-wget https://bootstrap.pypa.io/get-pip.py
-python3 get-pip.py
-~/.local/bin/pip3 install cryptography --upgrade
-~/.local/bin/pip3 install pyOpenssl --upgrade
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install -y ansible
 
-~/.local/bin/pip3 install --upgrade ansible molecule
-
-# Magic
 # Assuming passwordless sudo
-~/.local/bin/ansible-galaxy install -f -r roles/dots/collections.yml
-~/.local/bin/ansible-playbook -i hosts setup.yml
+ansible-galaxy install -f -r roles/dots/collections.yml
+ansible-playbook -i hosts setup.yml
 
 # Setup pre-commit
 pre-commit install
-
-# Cleanup
-rm get-pip*
 
 exit 0

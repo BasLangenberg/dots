@@ -7,11 +7,32 @@
       - ruby2.7-dev
     state: absent
   become: true
+- name: Update all packages to their latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+  become: true
 - name: Install essential packages
   apt:
     pkg: "{{ essential_packages }}"
     update_cache: yes
     cache_valid_time: 3600
+  become: true
+# Allow pip to setup system packages on my Ubuntu workstations
+# I don't like this fix
+# TODO make Ansible use personal virtualenv?
+# But then all my tooling must too?
+# And how do I setup this virtualenv before doing running this?
+- name: Get Python 3.X version
+  ansible.builtin.command: python3 --version
+  register: pyver
+  changed_when: false
+  failed_when: pyver.rc != 0
+- name: Remove Python 3.X EXTERNALLY-MANAGED file
+  ansible.builtin.file:
+    state: absent
+    path: "/usr/lib/python{{ pyver.stdout.split()[1] | regex_search('([0-9]+\\.[0-9]+)') }}/EXTERNALLY-MANAGED"
+  when: pyver.stdout | regex_search('3\.[0-9]+')
   become: true
 - name: Install pip packages
   pip:
@@ -68,6 +89,7 @@
     ansible_become: yes
     nodejs_npm_global_packages:
       - name: neovim
+    nodejs_version: "18.x"
     nodejs_install_npm_user: "{{ user }}"
 - name: Setup ruby
   ansible.builtin.include_role:
