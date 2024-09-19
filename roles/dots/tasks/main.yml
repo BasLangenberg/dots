@@ -43,6 +43,7 @@
     state: present
   become: true
   tags: k8s
+# TODO Retrieve + Install latest version
 - name: Add Kubernetes repository
   apt_repository:
     repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
@@ -454,3 +455,12 @@
     docker_users:
       - "{{ user }}"
     docker_install_compose: true
+- name: Download CINC deb file
+  ansible.builtin.get_url:
+    url: https://downloads.cinc.sh/files/stable/cinc-workstation/24.8.1068/ubuntu/24.04/cinc-workstation_24.8.1068-1_amd64.deb
+    dest: /tmp/cinc-workstation_24.8.1068-1_amd64.deb
+    mode: '0440'
+- name: Install CINC .deb
+  ansible.builtin.apt:
+    deb: /tmp/cinc-workstation_24.8.1068-1_amd64.deb
+  become: true
