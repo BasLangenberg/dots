@@ -464,3 +464,26 @@
   ansible.builtin.apt:
     deb: /tmp/cinc-workstation_24.8.1068-1_amd64.deb
   become: true
+- name: Get latest release of kubelogin
+  community.general.github_release:
+    user: Azure
+    repo: kubelogin
+    action: latest_release
+  register: kubelogin_version
+- name: Prep kubelogin unzip
+  ansible.builtin.file:
+    path: /tmp/kubelogin
+    state: directory
+    mode: '0755'
+- name: Download kubelogin
+  ansible.builtin.unarchive:
+    src: "https://github.com/Azure/kubelogin/releases/download/{{ kubelogin_version.tag }}/kubelogin-linux-amd64.zip"
+    dest: /tmp/kubelogin
+    remote_src: yes
+- name: Copy golangci to /usr/local/bin
+  ansible.builtin.copy:
+    src: /tmp/kubelogin/bin/linux_amd64/kubelogin
+    dest: /usr/local/bin
+    mode: 0755
+    remote_src: yes
+  become: true
