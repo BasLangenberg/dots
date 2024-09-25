@@ -1,5 +1,11 @@
 ---
 # tasks file for dots
+# After initial run on 24.04, bash complains about locals making ansible not run properly.
+# This should fix it
+- name: generate correct locales
+  command:
+    cmd: locale-gen en_US.UTF-8
+  become: true
 - name: Remove ruby2.7 if present
   apt:
     pkg:
