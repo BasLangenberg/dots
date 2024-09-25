@@ -13,7 +13,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true,
+      automatic_installation = true,
     },
   },
   {
@@ -90,7 +90,7 @@ return {
       })
 
       -- HTMX
-      lspconfig.htmx.setup{}
+      lspconfig.htmx.setup {}
       -- TODO: Setup schemastore for Yaml / JSON
       -- json (pronounced Sjasohn)
       lspconfig.jsonls.setup({
