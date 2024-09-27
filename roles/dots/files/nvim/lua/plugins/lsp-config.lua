@@ -3,11 +3,14 @@ return {
     "b0o/schemastore.nvim",
   },
   {
-    "williamboman/mason.nvim",
-    lazy = false,
+    'nvim-java/nvim-java',
     config = function()
-      require("mason").setup()
+      require('java').setup({
+      })
     end,
+  },
+  {
+    "williamboman/mason.nvim",
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -118,6 +121,9 @@ return {
           },
         },
       })
+
+      -- java
+      require('lspconfig').jdtls.setup({})
 
       -- Format on save
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {

@@ -54,6 +54,7 @@ additional_packages:
   - texlive-latex-recommended
   - texlive-latex-extra
   - strace
+  - maven
 
 pip_packages:
   - setuptools
