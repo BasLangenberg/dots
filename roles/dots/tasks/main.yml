@@ -493,3 +493,30 @@
     mode: 0755
     remote_src: yes
   become: true
+- name: Get latest release of zoxide
+  community.general.github_release:
+    user: ajeetdsouza
+    repo: zoxide
+    action: latest_release
+  tags: zoxide
+  register: zoxide_version
+- name: Prep zoxide unzip
+  ansible.builtin.file:
+    path: /tmp/zoxide
+    state: directory
+    mode: '0755'
+  tags: zoxide
+- name: Download zoxide
+  ansible.builtin.unarchive:
+    src: "https://github.com/ajeetdsouza/zoxide/releases/download/{{ zoxide_version.tag }}/zoxide-{{ zoxide_version.tag[1:] }}-x86_64-unknown-linux-musl.tar.gz"
+    dest: /tmp/zoxide
+    remote_src: yes
+  tags: zoxide
+- name: Copy zoxide to /usr/local/bin
+  ansible.builtin.copy:
+    src: /tmp/zoxide/zoxide
+    dest: /usr/local/bin
+    mode: 0755
+    remote_src: yes
+  become: true
+  tags: zoxide
