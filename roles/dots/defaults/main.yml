@@ -65,6 +65,7 @@ pip_packages:
   - github3.py
   - neovim
   - ipython
+  - tldr
 
 npm_packages:
   - neovim
