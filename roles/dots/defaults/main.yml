@@ -58,6 +58,7 @@ additional_packages:
   - texlive-latex-extra
   - strace
   - maven
+  - wslu
   - azure-cli
 
 pip_packages:
