@@ -24,6 +24,7 @@
     update_cache: yes
     cache_valid_time: 3600
   become: true
+  tags: install-essentials
 # Allow pip to setup system packages on my Ubuntu workstations
 # I don't like this fix
 # TODO make Ansible use personal virtualenv?
@@ -66,12 +67,25 @@
     repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
     state: present
   become: true
+- name: Add Microsoft repo key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  become: true
+  tags: msrepo
+- name: Add Microsoft repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ noble main
+    state: present
+  become: true
+  tags: msrepo
 - name: Install additional packages
   apt:
     pkg: "{{ additional_packages }}"
     update_cache: yes
     cache_valid_time: 3600
   become: true
+  tags: msrepo
 - name: check if tmux plugin manager is present
   stat:
     path: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"

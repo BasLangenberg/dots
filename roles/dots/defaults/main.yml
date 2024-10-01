@@ -23,6 +23,9 @@ essential_packages:
   - python3-venv
   - python3-setuptools
   - tig
+  - dnsutils
+  - gnupg
+  - lsb-release
 
 additional_packages:
   - ranger
@@ -55,6 +58,7 @@ additional_packages:
   - texlive-latex-extra
   - strace
   - maven
+  - azure-cli
 
 pip_packages:
   - setuptools
