@@ -1,7 +1,11 @@
 ---
 # Stolen from: https://github.com/ThePrimeagen/ansible/blob/master/tasks/nvim-setup.ym
-- name: Remove neovim
-  shell: rm -rf ~/neovim
+
+# Delete should not be required...
+#- name: Remove neovim
+#  shell: rm -rf ~/neovim
+#  # Some stuff is owned by root after compilation....
+#  become: true
 - name: Clone Neovim
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
