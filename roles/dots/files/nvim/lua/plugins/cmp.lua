@@ -1,3 +1,4 @@
+-- TODO: Maybe replace with https://github.com/Saghen/blink.cmp if this ever becomes too complex
 return {
   {
     "hrsh7th/cmp-nvim-lsp"
