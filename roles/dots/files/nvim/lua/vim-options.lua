@@ -78,18 +78,18 @@ vim.cmd([[
   set pastetoggle=<F10>
 
   set clipboard+=unnamedplus
-  let g:clipboard = {
-            \   'name': 'win32yank-wsl',
-            \   'copy': {
-            \      '+': 'win32yank.exe -i --crlf',
-            \      '*': 'win32yank.exe -i --crlf',
-            \    },
-            \   'paste': {
-            \      '+': 'win32yank.exe -o --lf',
-            \      '*': 'win32yank.exe -o --lf',
-            \   },
-            \   'cache_enabled': 0,
-            \ }
+"  let g:clipboard = {
+"            \   'name': 'win32yank-wsl',
+"            \   'copy': {
+"            \      '+': 'win32yank.exe -i --crlf',
+"            \      '*': 'win32yank.exe -i --crlf',
+"            \    },
+"            \   'paste': {
+"            \      '+': 'win32yank.exe -o --lf',
+"            \      '*': 'win32yank.exe -o --lf',
+"            \   },
+"            \   'cache_enabled': 0,
+"            \ }
   let g:loaded_perl_provider = 0
 
   " Persistent undo

@@ -60,6 +60,7 @@ additional_packages:
   - maven
   - wslu
   - azure-cli
+  - cloc
 
 pip_packages:
   - setuptools
