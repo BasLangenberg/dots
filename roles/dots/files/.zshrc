@@ -29,7 +29,7 @@ compinit
 export EDITOR=nvim
 
 # Make sure Terragrunt does not download to the local directory but to temp
-export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt
+export TG_DOWNLOAD_DIR=/tmp/terragrunt
 
 # Aliasses
 alias ll='ls -latr'
