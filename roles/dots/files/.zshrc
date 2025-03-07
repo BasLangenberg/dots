@@ -45,9 +45,9 @@ alias tda='terraform destroy -auto-approve'
 alias tp='terraform plan'
 alias ti='terraform init'
 alias tgp='terragrunt --terragrunt-download-dir /tmp/terragrunt plan'
-alias tgpa='terragrunt --terragrunt-download-dir /tmp/terragrunt run-all plan'
+alias tgpa='terragrunt run-all plan'
 alias tga='terragrunt --terragrunt-download-dir /tmp/terragrunt apply'
-alias tgaa='terragrunt --auto-approve --terragrunt-download-dir /tmp/terragrunt run-all apply'
+alias tgaa='terragrunt run-all apply --terragrunt-non-interactive'
 
 alias cat='batcat'
 
