@@ -91,12 +91,11 @@
     path: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
   register: tpm
   tags: tpm
-- name: clone tmux plugin manager
+- name: clone catppuccin plugin for tmux
   git:
-    repo: https://github.com/tmux-plugins/tpm
-    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-  when: tpm.stat.isdir is not defined
-  tags: tpm
+    repo: https://github.com/catppuccin/tmux
+    dest: "{{ ansible_env.HOME }}/.config/tmux/plugins/catppuccin/tmux"
+  tags: tmux
 - name: Setup GoLang
   ansible.builtin.include_role:
     name: gantsign.golang
