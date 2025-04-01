@@ -16,6 +16,7 @@
 - name: Run distclean in neovim source dir
   shell: "cd {{ ansible_env.HOME }}/neovim && make distclean"
   when: neovim_git.changed
+  become: true
 - name: Build neovim
   shell: "cd {{ ansible_env.HOME }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
   when: neovim_git.changed
