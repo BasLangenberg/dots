@@ -33,6 +33,7 @@
 # Unimportant TODOs that sounds fun and I need to write down but will probably not happen SHAVING YAKS ALL DAY EVERYDAY BABY
 
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
+- [ ] Split main task yml in multiple thingies and optionally include them so we are not waiting for five years every run
 
 # DONE
 
