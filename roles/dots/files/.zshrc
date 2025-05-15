@@ -34,6 +34,7 @@ export TG_DOWNLOAD_DIR=/tmp/terragrunt
 # Aliasses
 alias ll='ls -latr'
 alias v='vim'
+alias vi='vim'
 alias r='ranger'
 alias gss='git status --short'
 alias data='cd /mnt/c/data'
