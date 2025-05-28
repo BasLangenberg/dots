@@ -19,6 +19,10 @@ In the end, this repository is meant to be a portable dotfile repository setting
 Repo is tested with Molecule
 For testing with an Ubuntu, use the provided Vagrantfile with this repo.
 
+## Font stuff
+
+Configured to use MesloLGS NF as the default font, which is a Nerd Font patched version of the original MesloLGS font. Download it from [Nerd Fonts](https://www.nerdfonts.com/font-downloads). You need to use the LGS versions. Found in ${PWD}/fonts, but this is included in case we need to update the fonts in the future. Don't want to spend 2 hours again to figure out how all of this works again.
+
 ## Issues
 
 On 2022-09-24, issues with pip3 and cryptography / pyOpenssl were discovered. They can be fixed with this script

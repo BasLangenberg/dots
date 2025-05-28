@@ -16,7 +16,7 @@ repos:
   - id: fix-byte-order-marker
   - id: mixed-line-ending
   - id: check-added-large-files
-    args: [--maxkb=2048]
+    args: [--maxkb=4096]
   - id: check-merge-conflict
   - id: check-executables-have-shebangs
 - repo: https://github.com/Lucas-C/pre-commit-hooks
