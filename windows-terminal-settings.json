@@ -30,17 +30,6 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "colorScheme": "Catppuccin Frappe",
-                "commandline": "wsl.exe -d Ubuntu",
-                "font": {
-                    "face": "MesloLGS NF"
-                },
-                "guid": "{ed717f2b-7017-4ba8-9f3b-779575cb2db3}",
-                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Ubuntu",
-                "startingDirectory": "/home/bas"
-            },
-            {
                 "cursorShape": "filledBox",
                 "font": {
                     "builtinGlyphs": true,
@@ -51,12 +40,6 @@
                 "hidden": true,
                 "name": "Ubuntu-24.04",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
-                "hidden": false,
-                "name": "Ubuntu 24.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
             }
         ]
     },
