@@ -1,6 +1,7 @@
 # TODO / Ideas for PDM
 
 - [x] Neovim
+  - [ ] YAML files not really working with LSP / I'd like to see where I am in the document tree
   - [ ] Save buffer on focus change
   - [ ] Fix awkward copy-paste in Vim
   - [ ] Languages
@@ -11,24 +12,16 @@
       - [ ] Folke/Twilight & Pocco81/true-zen.nvim shizzle?
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
 
-- [ ] Tmux improvements
-  - [x] tmux-sessionizer with prefix in pane running something
-  - [x] fix window rename
-  - [ ] more plugins?
-    - [ ] lol tmux is dope out of the box already
-  - [ ] Typecraft on YouTube?
-
-- [ ] zsh
-  - [ ] Fix autocorrect crap
-
 - [ ] Look into better bootstrapping
   - [ ] Setup Windows Terminal from bootstrap script if possible
-  - [ ] Fix out of bound installs of Ansible / Pip in bootstrap.sh
-  - [ ] Fix rebuild of Neovim on every Ansible invoke
 
 - [ ] SSH
   - [ ] Look into acquiring YubiKeys
   - [ ] ssh-agent on startup?
+
+- [ ] Ansible
+  - [ ] Look into an Ansible role for getting releases from Github
+  - [ ] [Inspiration](https://github.com/zyedidia/eget)
 
 # Unimportant TODOs that sounds fun and I need to write down but will probably not happen SHAVING YAKS ALL DAY EVERYDAY BABY
 
@@ -121,4 +114,15 @@
 
 - [x] Copy golangci-lint binary to correct directory instead of /usr/local/bin/<ARCHIVEDIR> (Rate limits on github prevent me from fixing at time of writing)
 
+- [x] Tmux improvements
+  - [x] tmux-sessionizer with prefix in pane running something
+  - [x] fix window rename
+  - [x] more plugins?
+    - [x] lol tmux is dope out of the box already
+  - [x] Typecraft on YouTube?
+
 - [x] GIT - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
+
+- [ ] Look into better bootstrapping
+  - [x] Fix out of bound installs of Ansible / Pip in bootstrap.sh
+  - [x] Fix rebuild of Neovim on every Ansible invoke

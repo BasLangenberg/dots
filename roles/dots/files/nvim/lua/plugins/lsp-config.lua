@@ -1,23 +1,31 @@
 return {
   {
-    "b0o/schemastore.nvim",
-  },
-  {
-    'nvim-java/nvim-java',
+    "mason-org/mason.nvim",
     config = function()
-      require('java').setup({
+      require("mason").setup({
       })
     end,
   },
   {
-    "williamboman/mason.nvim",
-  },
-  {
     "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "ts_ls", "html", "lua_ls", "pyright", "solargraph", "terraformls",
+          "gopls", "htmx", "jsonls", "yamlls", "jdtls"
+        },
+      })
+    end,
     lazy = false,
     opts = {
       automatic_installation = true,
     },
+  },
+  {
+    "b0o/schemastore.nvim",
+  },
+  {
+    'nvim-java/nvim-java',
   },
   {
     "nvimtools/none-ls.nvim",
@@ -123,7 +131,7 @@ return {
       })
 
       -- java
-      require('lspconfig').jdtls.setup({})
+      vim.lsp.enable({ "jdtls" })
 
       -- Format on save
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
