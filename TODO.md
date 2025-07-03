@@ -11,6 +11,7 @@
       - [ ] [blogpost](https://alpha2phi.medium.com/vim-neovim-plugins-for-writing-d18414c7b21d)
       - [ ] Folke/Twilight & Pocco81/true-zen.nvim shizzle?
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
+    - [ ] Fix Java for the 10th time
 
 - [ ] Look into better bootstrapping
   - [ ] Setup Windows Terminal from bootstrap script if possible
