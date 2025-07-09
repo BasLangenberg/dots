@@ -12,6 +12,10 @@
       - [ ] Folke/Twilight & Pocco81/true-zen.nvim shizzle?
     - [ ] Run command to install lazy plugins from Ansible, so we do not need to wait for this after new setup is done
     - [ ] Fix Java for the 10th time
+    - [ ] DAP working for at least Go combined with Delve
+      - [ ] https://github.com/nvim-neotest/neotest
+      - [ ] https://github.com/leoluz/nvim-dap-go
+    - [ ] Folke build [this](https://github.com/folke/lazydev.nvim)
 
 - [ ] Look into better bootstrapping
   - [ ] Setup Windows Terminal from bootstrap script if possible
@@ -28,6 +32,7 @@
 
 - [ ] Make Ansible not report any changes in dots role when ran a second time (IDEMPOTENCY BABY)
 - [ ] Split main task yml in multiple thingies and optionally include them so we are not waiting for five years every run
+- [ ] This guy is thinking about Arch Linux again...
 
 # DONE
 
