@@ -16,6 +16,7 @@
       - [ ] https://github.com/nvim-neotest/neotest
       - [ ] https://github.com/leoluz/nvim-dap-go
     - [ ] Folke build [this](https://github.com/folke/lazydev.nvim)
+    - [ ] [Make live somewhat more miserable](github.com/m4xshen/hardtime.nvim)
 
 - [ ] Look into better bootstrapping
   - [ ] Setup Windows Terminal from bootstrap script if possible
