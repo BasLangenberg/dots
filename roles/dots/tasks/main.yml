@@ -56,6 +56,25 @@
     repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
     state: present
   become: true
+- name: Get latest release of kubecolor
+  community.general.github_release:
+    user: kubecolor
+    repo: kubecolor
+    action: latest_release
+  tags: kubecolor
+  register: kubecolor_version
+- name: Add kubecolor repository
+  apt:
+    deb: "https://kubecolor.github.io/packages/deb/pool/main/k/kubecolor/kubecolor_{{ kubecolor_version.tag[1:] }}_amd64.deb"
+  tags: kubecolor
+  become: true
+- name: Download and install kubecolor
+  ansible.builtin.apt:
+    name: kubecolor
+    update_cache: yes
+    cache_valid_time: 3600
+  tags: kubecolor
+  become: true
 - name: Add Hashicorp repo key
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg

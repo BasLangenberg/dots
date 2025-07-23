@@ -154,9 +154,6 @@ export GOBIN
 export DISTRIB_ID=arch
 export DISTRIB_RELEASE=$(uname -r)
 
-# Kubernetes
-source <(kubectl completion zsh)
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Load some secrets
@@ -169,8 +166,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # K8S
 source <(kubectl completion zsh)
+compdef kubecolor=kubectl
 alias k=kubectl
-# complete -F __start_kubectl k
+alias kubectl=kubecolor
 
 # Docker compose
 PATH=${PATH}:/home/bas/.local/bin
