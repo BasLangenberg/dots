@@ -48,63 +48,41 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local lspconfig = require("lspconfig")
 
       -- Typescript
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.enable('ts_ls')
 
       -- HTML
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.enable('html')
 
       -- Lua
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.enable('lua_ls')
 
       -- Python
-      lspconfig.pyright.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.enable('pyright')
 
       -- Ruby
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
+      vim.lsp.enable('solargraph')
 
       -- Terraform
-      lspconfig.terraformls.setup({
-        capabilities = capabilities,
-        init_options = {
-          terraform = {
-            path = vim.fn.expand('$HOME/bin/terraform')
-          }
-        }
-      })
+      --vim.lsp.config('terraformls', {
+      --  capabilities = capabilities,
+      --  init_options = {
+      --    terraform = {
+      --      path = vim.fn.expand('$HOME/bin/terraform')
+      --    }
+      --  }
+      --})
+      vim.lsp.enable('terraformls')
 
       -- Go
-      lspconfig.gopls.setup({
-        cmd = { "gopls", "serve" },
-        filetypes = { "go", "gomod" },
-        root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
-          },
-        },
-      })
+      vim.lsp.enable('gopls')
 
       -- HTMX
-      lspconfig.htmx.setup {}
+      vim.lsp.enable('htmx')
       -- TODO: Setup schemastore for Yaml / JSON
       -- json (pronounced Sjasohn)
-      lspconfig.jsonls.setup({
+      vim.lsp.config('jsonls', {
         capabilities = capabilities,
         settings = {
           json = {
@@ -113,9 +91,10 @@ return {
           },
         },
       })
+      vim.lsp.enable('jsonls')
 
       -- yaml
-      lspconfig.yamlls.setup({
+      vim.lsp.config('yamlls', {
         settings = {
           yaml = {
             schemaStore = {
@@ -129,6 +108,7 @@ return {
           },
         },
       })
+      vim.lsp.enable('yamlls')
 
       -- java
       vim.lsp.enable({ "jdtls" })
