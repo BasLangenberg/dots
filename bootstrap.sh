@@ -12,7 +12,7 @@ sudo apt install -y ansible ohai
 
 # Assuming passwordless sudo
 ansible-galaxy install -f -r roles/dots/collections.yml
-ansible-playbook -i hosts setup.yml
+ansible-playbook -i hosts setup.yml -K
 
 # Setup pre-commit
 pre-commit install
