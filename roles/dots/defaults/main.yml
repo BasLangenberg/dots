@@ -32,7 +32,6 @@ additional_packages:
   - mupdf
   - pandoc
   - kubectl
-  - terraform
   - shellcheck
   - ninja-build
   - gettext

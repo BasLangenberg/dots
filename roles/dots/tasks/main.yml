@@ -39,7 +39,6 @@
   ansible.builtin.file:
     state: absent
     path: "/usr/lib/python{{ pyver.stdout.split()[1] | regex_search('([0-9]+\\.[0-9]+)') }}/EXTERNALLY-MANAGED"
-#  when: pyver.stdout | regex_search('3\.[0-9]+')
   become: true
 - name: Install pip packages
   pip:
@@ -75,16 +74,22 @@
     cache_valid_time: 3600
   tags: kubecolor
   become: true
-- name: Add Hashicorp repo key
-  apt_key:
+# Checksum can be figured out by checking https://peateasea.de/avoiding-ansible-apt-key-on-debian/ for instructions
+- name: download the package signing key for the HashiCorp Debian repository
+  get_url:
     url: https://apt.releases.hashicorp.com/gpg
-    state: present
+    dest: /tmp/hashicorp-archive-keyring.asc
+    checksum: "sha256:cafb01beac341bf2a9ba89793e6dd2468110291adfbb6c62ed11a0cde6c09029"
+- name: dearmor the downloaded signing key file
+  shell: gpg --batch --dearmor -o /etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg /tmp/hashicorp-archive-keyring.asc
+  args:
+    creates: /etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg
   become: true
-  tags: k8s
-- name: Add Hashicorp repository
+- name: add HashiCorp Linux repository
   apt_repository:
-    repo: deb [arch=amd64] https://apt.releases.hashicorp.com focal main
+    repo: deb [arch=amd64, signed-by=/etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com noble main
     state: present
+    filename: hashicorp-linux
   become: true
 - name: Add Microsoft repo key
   apt_key:
