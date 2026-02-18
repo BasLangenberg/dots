@@ -46,13 +46,25 @@
 - name: Add Kubernetes repo key
   apt_key:
     url: https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key
-    state: present
+    state: absent
   become: true
   tags: k8s
 # TODO Retrieve + Install latest version
 - name: Add Kubernetes repository
   apt_repository:
     repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+    state: absent
+  become: true
+- name: Add Kubernetes repo key
+  apt_key:
+    url: https://pkgs.k8s.io/core:/stable:/v1.33/deb/Release.key
+    state: present
+  become: true
+  tags: k8s
+# TODO Retrieve + Install latest version
+- name: Add Kubernetes repository
+  apt_repository:
+    repo: deb https://pkgs.k8s.io/core:/stable:/v1.33/deb/ /
     state: present
   become: true
 - name: Get latest release of kubecolor
