@@ -7,6 +7,8 @@
   - [ ] Look into an Ansible role for getting releases from Github
       - [ ] [Inspiration](https://github.com/zyedidia/eget)
 
+- [ ] Setup github runner that tests playbook every week
+
 - [x] Neovim
   - [ ] Update nvim to 0.12
     - [ ] Treesitter is supposed to be broken
