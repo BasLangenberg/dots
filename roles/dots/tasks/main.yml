@@ -40,6 +40,10 @@
     state: absent
     path: "/usr/lib/python{{ pyver.stdout.split()[1] | regex_search('([0-9]+\\.[0-9]+)') }}/EXTERNALLY-MANAGED"
   become: true
+- name: Make sure old molecule-docker package is absent
+  pip:
+    name: "molecule-docker"
+    state: absent
 - name: Install pip packages
   pip:
     name: "{{ pip_packages }}"

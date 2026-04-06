@@ -64,7 +64,7 @@ additional_packages:
 pip_packages:
   - setuptools
   - molecule
-  - molecule-docker
+  - molecule-plugins[docker]
   - pre-commit
   - yamllint
   - github3.py
