@@ -7,6 +7,8 @@
   - [ ] Look into an Ansible role for getting releases from Github
       - [ ] [Inspiration](https://github.com/zyedidia/eget)
 
+- [ ] Test / Add support for Ubuntu 26.04
+
 - [ ] Setup github runner that tests playbook every week
 
 - [x] Neovim
