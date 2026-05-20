@@ -12,7 +12,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "ts_ls", "html", "lua_ls", "pyright", "solargraph", "terraformls",
-          "gopls", "htmx", "jsonls", "yamlls", "jdtls"
+          "gopls", "htmx", "jsonls", "yamlls", "jdtls", "helm_ls"
         },
       })
     end,
@@ -156,5 +156,18 @@ return {
         -- options
       }
     end,
+  },
+  {
+    "qvalentin/helm-ls.nvim",
+    ft = "helm",
+    vim.lsp.config('helm-ls', {
+      settings = {
+        ['helm-ls'] = {
+          yamlls = {
+            path = "yaml-language-server",
+          },
+        },
+      },
+    }),
   },
 }
