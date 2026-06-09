@@ -50,7 +50,7 @@ alias tgpa='terragrunt run-all plan'
 alias tga='terragrunt --terragrunt-download-dir /tmp/terragrunt apply'
 alias tgaa='terragrunt run-all apply --terragrunt-non-interactive'
 
-alias cat='batcat'
+alias cat='batcat -p'
 
 alias projects='cd ${HOME}/projects'
 
