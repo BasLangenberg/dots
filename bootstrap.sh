@@ -1,20 +1,28 @@
 #!/usr/bin/env bash
 
 # Fix path
-PATH=${HOME}/.local/bin:${PATH}
+###PATH=${HOME}/.local/bin:${PATH}
+###
+#### Updates, Upgrades and packages
+###sudo apt update
+###sudo apt install -y software-properties-common python3-pip python3-venv ohai
 
-# Updates, Upgrades and packages
-sudo apt update
-sudo apt install -y software-properties-common
+# Setup Ansible
+# Pinned version, need to automate upgrade testing
+if [[ ! -f ~/.venv ]]; then
+    python3 -m venv .venv
+fi
 
-sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install -y ansible ohai
+. .venv/bin/activate
 
-# Assuming passwordless sudo
+pip install -r requirements.txt
+## Assuming passwordless sudo
 ansible-galaxy install -f -r roles/dots/collections.yml
 ansible-playbook -i hosts setup.yml -K
 
-# Setup pre-commit
+deactivate
+
+## Setup pre-commit
 pre-commit install
 
 exit 0

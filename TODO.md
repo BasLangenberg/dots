@@ -6,8 +6,12 @@
     - [ ] Fix Molecule Tests
   - [ ] Look into an Ansible role for getting releases from Github
       - [ ] [Inspiration](https://github.com/zyedidia/eget)
+  - [ ] Look into testing of upgrades for Ansible, before breaking "prod"
+  - [ ] Fix al linter warnings
 
 - [ ] Test / Add support for Ubuntu 26.04
+
+- [ ] Fix install of Golang (Galaxy role is not maintained anymore)
 
 - [ ] Setup github runner that tests playbook every week
 

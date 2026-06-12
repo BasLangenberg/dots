@@ -1,17 +1,14 @@
 return {
   {
-  "nvim-lualine/lualine.nvim",
-   dependencies = { 'nvim-tree/nvim-web-devicons' },
-   config = function()
-   require("lualine").setup({
-      options = {
-           theme = "catppuccin",
-       },
+    "nvim-lualine/lualine.nvim",
+    dependencies = { 'nvim-tree/nvim-web-devicons', 'catppuccin/nvim' },
+    config = function()
+      require("lualine").setup({
         sections = {
-          lualine_c = {'filename', 'lsp-status'},
+          lualine_c = { 'filename', 'lsp-status' },
         }
-  })
-  end,
-},
+      })
+    end,
+  },
   { 'pnx/lualine-lsp-status' }
 }
