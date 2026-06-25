@@ -206,3 +206,8 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # Chef
 export CHEF_INSTALL="/opt/chefdk"
 export PATH="$CHEF_INSTALL/bin:$PATH"
+
+# Setup local aliases if present
+if [[ -f ~/.local_alias ]]; then
+  source ~/.local_alias
+fi
