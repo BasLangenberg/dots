@@ -95,7 +95,7 @@
   get_url:
     url: https://apt.releases.hashicorp.com/gpg
     dest: /tmp/hashicorp-archive-keyring.asc
-    checksum: "sha256:cafb01beac341bf2a9ba89793e6dd2468110291adfbb6c62ed11a0cde6c09029"
+    checksum: "sha256:1df7d66b79352bab45388511079f74987568672a8ed6395053a050b61f6c5430"
 - name: dearmor the downloaded signing key file
   shell: gpg --batch --dearmor -o /etc/apt/trusted.gpg.d/hashicorp-archive-keyring.gpg /tmp/hashicorp-archive-keyring.asc
   args:
