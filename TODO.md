@@ -14,6 +14,7 @@
 - [ ] Fix install of Golang (Galaxy role is not maintained anymore)
 
 - [ ] Setup github runner that tests playbook every week
+  - [ ] https://oneuptime.com/blog/post/2026-02-21-ansible-test-roles-github-actions/view
 
 - [x] Neovim
   - [ ] Update nvim to 0.12
