@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-# Fix path
-###PATH=${HOME}/.local/bin:${PATH}
-###
-#### Updates, Upgrades and packages
-###sudo apt update
-###sudo apt install -y software-properties-common python3-pip python3-venv ohai
-
 # Setup Ansible
 # Pinned version, need to automate upgrade testing
 if [[ ! -f ~/.venv ]]; then

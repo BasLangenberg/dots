@@ -211,3 +211,6 @@ export PATH="$CHEF_INSTALL/bin:$PATH"
 if [[ -f ~/.local_alias ]]; then
   source ~/.local_alias
 fi
+
+# Alias for running dots ansible playbook
+alias update=${HOME}/dots/update.sh
